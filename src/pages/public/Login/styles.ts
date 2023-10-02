@@ -61,3 +61,18 @@ export const TextField = styled.input`
     font-family: 'Russo One', sans-serif;
     color: #305661;
 `;
+
+export const Button = styled.button`
+    height: 2.5rem;
+    width: 70%;
+    background: #305661;
+    border: 2px solid #ffffff;
+    border-radius: 2%;
+    color: #ffffff;
+    cursor: pointer;
+
+    &:hover {
+        background: #17282d;
+        transition: 0.2s linear;
+    }
+`;
