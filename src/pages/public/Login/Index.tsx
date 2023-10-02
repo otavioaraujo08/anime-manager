@@ -1,8 +1,13 @@
+import { Container, GenericTitle, LoginBox, TextField } from './styles';
+
 export const Login = () => {
     return (
-        <>
-            <h1>P[agina de login]</h1>
-            <h1>P[agina de cadastro]</h1>
-        </>
+        <Container>
+            <LoginBox>
+                <GenericTitle>Digite seu nome abaixo</GenericTitle>
+
+                <TextField placeholder="Digite seu nome aqui..." />
+            </LoginBox>
+        </Container>
     );
 };
