@@ -1,9 +1,13 @@
 import styled from 'styled-components';
+import loginWallper from '../../../assets/loginWallpaper.png';
 
 export const Container = styled.div`
     height: 100%;
     min-height: 100vh;
     background-color: #127f96;
+    background-image: url(${loginWallper});
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,16 +15,22 @@ export const Container = styled.div`
 `;
 
 export const LoginBox = styled.div`
-    background-color: #e6e4d5;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(2.5px);
+    -webkit-backdrop-filter: blur(2.5px);
     height: 30rem;
     width: 30rem;
-    border: 3px solid #305661;
     border-radius: 2%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2rem;
+
+    @media (max-width: 1000px) {
+        height: 25rem;
+    }
 
     @media (max-width: 600px) {
         width: 80%;
@@ -34,15 +44,11 @@ export const GenericTitle = styled.h3`
     font-weight: 400;
     color: #305661;
 
+    @media (max-width: 1000px) {
+        font-size: 1.2rem;
+    }
+
     @media (max-width: 600px) {
-        font-size: 1.2rem;
-    }
-
-    @media (max-width: 400px) {
-        font-size: 1.2rem;
-    }
-
-    @media (max-width: 220px) {
         font-size: 1rem;
     }
 `;
