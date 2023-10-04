@@ -37,7 +37,7 @@ export const LoginBox = styled.div`
     }
 `;
 
-export const GenericTitle = styled.h3`
+export const GenericTitle = styled.h2`
     text-align: center;
     font-family: 'Russo One', sans-serif;
     font-size: 1.5rem;
@@ -50,6 +50,22 @@ export const GenericTitle = styled.h3`
 
     @media (max-width: 600px) {
         font-size: 1rem;
+    }
+`;
+
+export const GenericSubtitle = styled.h3`
+    text-align: center;
+    font-family: 'Russo One', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #3d4f55;
+
+    @media (max-width: 1000px) {
+        font-size: 1rem;
+    }
+
+    @media (max-width: 600px) {
+        font-size: 0.9rem;
     }
 `;
 
