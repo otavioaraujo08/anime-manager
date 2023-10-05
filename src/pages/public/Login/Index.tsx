@@ -58,7 +58,7 @@ export const Login = () => {
             );
 
             filteredUser.length
-                ? navigate('/home', { state: filteredUser })
+                ? navigate('/home', { state: filteredUser[0] })
                 : alert('Usuário não encontrado');
         } catch (err) {
             alert(err);
