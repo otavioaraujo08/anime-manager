@@ -15,8 +15,10 @@ import {
     AnimeModalImage,
     AnimeModalTitle,
     AnimeModalInfos,
+    EditModalDiv,
 } from './styles';
 import { useState, useEffect } from 'react';
+import { Pencil } from '@phosphor-icons/react';
 import { AnimeData } from '../../../interfaces/animes';
 import { Modal } from '../../../components/Modal';
 
@@ -155,6 +157,10 @@ export const Home = () => {
                                 {animeData.animeData?.progress || 'Progresso'}
                             </strong>
                         </AnimeModalTitle>
+
+                        <EditModalDiv>
+                            <Pencil size={25} color="#210303" weight="bold" />
+                        </EditModalDiv>
                     </AnimeModalInfos>
                 </AnimeModalContainer>
             </Modal>
