@@ -57,6 +57,10 @@ export const Textfield = styled.input`
     @media (max-width: 600px) {
         width: 10rem;
     }
+
+    @media (max-width: 400px) {
+        display: none;
+    }
 `;
 
 export const Body = styled.div`
@@ -176,6 +180,10 @@ export const AnimeModalImage = styled.img`
     @media (max-width: 800px) {
         height: 21rem;
     }
+
+    @media (max-width: 500px) {
+        width: 70%;
+    }
 `;
 
 export const AnimeModalInfos = styled.div`
@@ -219,4 +227,12 @@ export const EditModalDiv = styled.div`
     right: 2%;
     margin: auto;
     transform: translateY(-50%);
+
+    @media (max-width: 790px) {
+        top: 100%;
+    }
+
+    @media (max-width: 400px) {
+        display: none;
+    }
 `;
