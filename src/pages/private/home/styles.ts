@@ -157,12 +157,25 @@ export const AnimeModalContainer = styled.div`
     display: flex;
     height: 91%;
     background: #f1faee;
+    overflow-x: scroll;
+
+    @media (max-width: 800px) {
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
 `;
 
 export const AnimeModalImage = styled.img`
     height: 100%;
     width: fit-content;
     max-width: 25rem;
+
+    @media (max-width: 800px) {
+        height: 21rem;
+    }
 `;
 
 export const AnimeModalInfos = styled.div`
@@ -170,6 +183,10 @@ export const AnimeModalInfos = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+
+    @media (max-width: 800px) {
+        gap: 1rem;
+    }
 `;
 
 export const AnimeModalTitle = styled.h1`
@@ -186,4 +203,20 @@ export const AnimeModalTitle = styled.h1`
     @media (max-width: 600px) {
         font-size: 1rem;
     }
+`;
+
+export const EditModalDiv = styled.div`
+    height: 2.5rem;
+    width: 2.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    position: absolute;
+    top: 95%;
+    right: 2%;
+    margin: auto;
+    transform: translateY(-50%);
 `;
