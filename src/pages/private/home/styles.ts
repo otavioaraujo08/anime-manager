@@ -152,3 +152,38 @@ export const AnimeSubtitle = styled.h4`
         font-size: 0.8rem;
     }
 `;
+
+export const AnimeModalContainer = styled.div`
+    display: flex;
+    height: 91%;
+    background: #f1faee;
+`;
+
+export const AnimeModalImage = styled.img`
+    height: 100%;
+    width: fit-content;
+    max-width: 25rem;
+`;
+
+export const AnimeModalInfos = styled.div`
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+`;
+
+export const AnimeModalTitle = styled.h1`
+    font-family: 'Asap', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #000000;
+    letter-spacing: 0.1rem;
+
+    @media (max-width: 800px) {
+        font-size: 1.2rem;
+    }
+
+    @media (max-width: 600px) {
+        font-size: 1rem;
+    }
+`;

@@ -11,6 +11,10 @@ import {
     AnimeBox,
     AnimeTitle,
     AnimeSubtitle,
+    AnimeModalContainer,
+    AnimeModalImage,
+    AnimeModalTitle,
+    AnimeModalInfos,
 } from './styles';
 import { useState, useEffect } from 'react';
 import { AnimeData } from '../../../interfaces/animes';
@@ -94,7 +98,65 @@ export const Home = () => {
                 isOpen={animeData.isModalOpen}
                 closeModal={handleChangeModalStatus}
             >
-                <h1>OLA MUNDO</h1>
+                <AnimeModalContainer>
+                    <>
+                        <AnimeModalImage
+                            src={
+                                animeData.animeData?.photo ||
+                                'https://defeatzone.com/wp-content/uploads/2023/09/a.png'
+                            }
+                            alt="anime photo"
+                        />
+                    </>
+
+                    <AnimeModalInfos>
+                        <AnimeModalTitle>
+                            Título:{' '}
+                            <strong>
+                                {animeData.animeData?.title || 'Nome padrão'}
+                            </strong>
+                        </AnimeModalTitle>
+
+                        <AnimeModalTitle>
+                            Temporada:{' '}
+                            <strong>
+                                {animeData.animeData?.season ||
+                                    'Temporada Atual'}
+                            </strong>
+                        </AnimeModalTitle>
+
+                        <AnimeModalTitle>
+                            Dia de exibição:{' '}
+                            <strong>
+                                {animeData.animeData?.dayOfWeek ||
+                                    'Dia aleatorio'}
+                            </strong>
+                        </AnimeModalTitle>
+
+                        <AnimeModalTitle>
+                            Episódios assistidos:{' '}
+                            <strong>
+                                {animeData.animeData?.episodesWatched ||
+                                    'Quantidade aleatoria'}
+                            </strong>
+                        </AnimeModalTitle>
+
+                        <AnimeModalTitle>
+                            Última exibição:{' '}
+                            <strong>
+                                {animeData.animeData?.lastDayWatched ||
+                                    'Data aleatorio'}
+                            </strong>
+                        </AnimeModalTitle>
+
+                        <AnimeModalTitle>
+                            Progresso:{' '}
+                            <strong>
+                                {animeData.animeData?.progress || 'Progresso'}
+                            </strong>
+                        </AnimeModalTitle>
+                    </AnimeModalInfos>
+                </AnimeModalContainer>
             </Modal>
         </>
     );
