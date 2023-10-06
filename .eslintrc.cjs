@@ -15,5 +15,14 @@ module.exports = {
             { allowConstantExport: true },
         ],
         '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/ban-types': [
+            'error',
+            {
+                extendDefaults: true,
+                types: {
+                    '{}': false,
+                },
+            },
+        ],
     },
 };
