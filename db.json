@@ -2,43 +2,46 @@
     "users": [
         {
             "id": 1,
-            "name": "thalles",
-            "animes": [
-                {
-                    "id": 1,
-                    "title": "Naruto",
-                    "photo": "https://books.google.com.br/books/publisher/content?id=THsEEAAAQBAJ&hl=pt-BR&pg=PA1&img=1&zoom=3&bul=1&sig=ACfU3U3YI6v95ACL0S9G1QFQsdOTBeRnOA&w=1280",
-                    "dayOfWeek": "Domingo",
-                    "lastDayWatched": "20/05/2023",
-                    "episodesWatched": 24,
-                    "progress": "Em andamento",
-                    "season": "Inverno"
-                },
-                {
-                    "id": 2,
-                    "title": "Bleach",
-                    "photo": "https://books.google.com.br/books/publisher/content?id=VteMDwAAQBAJ&hl=pt-BR&pg=PA1&img=1&zoom=3&bul=1&sig=ACfU3U1loNBxI4SYDI3oVz7EgUceM829dg&w=1280",
-                    "dayOfWeek": "Sábado",
-                    "lastDayWatched": "10/05/2022",
-                    "episodesWatched": 35,
-                    "progress": "Em andamento",
-                    "season": "Inverno"
-                },
-                {
-                    "id": 3,
-                    "title": "Blue Lock",
-                    "photo": "https://books.google.com.br/books/publisher/content?id=MFQfEAAAQBAJ&hl=pt-BR&pg=PA1&img=1&zoom=3&bul=1&sig=ACfU3U3UHbxch1bvQPlcJwrKk-R6qzIUlA&w=1280",
-                    "dayOfWeek": "Sábado",
-                    "lastDayWatched": "25/07/2023",
-                    "episodesWatched": 24,
-                    "progress": "Completo",
-                    "season": "Outono"
-                }
-            ]
+            "name": "thalles"
         },
         {
             "name": "otavio",
             "id": 2
+        }
+    ],
+    "animes": [
+        {
+            "id": 1,
+            "userId": 1,
+            "title": "Naruto",
+            "photo": "https://books.google.com.br/books/publisher/content?id=THsEEAAAQBAJ&hl=pt-BR&pg=PA1&img=1&zoom=3&bul=1&sig=ACfU3U3YI6v95ACL0S9G1QFQsdOTBeRnOA&w=1280",
+            "dayOfWeek": "Domingo",
+            "lastDayWatched": "20/05/2023",
+            "episodesWatched": 24,
+            "progress": "Em andamento",
+            "season": "Inverno"
+        },
+        {
+            "id": 2,
+            "userId": 1,
+            "title": "Bleach",
+            "photo": "https://books.google.com.br/books/publisher/content?id=VteMDwAAQBAJ&hl=pt-BR&pg=PA1&img=1&zoom=3&bul=1&sig=ACfU3U1loNBxI4SYDI3oVz7EgUceM829dg&w=1280",
+            "dayOfWeek": "Sábado",
+            "lastDayWatched": "10/05/2022",
+            "episodesWatched": 35,
+            "progress": "Em andamento",
+            "season": "Inverno"
+        },
+        {
+            "id": 3,
+            "userId": 2,
+            "title": "Blue Lock",
+            "photo": "https://books.google.com.br/books/publisher/content?id=MFQfEAAAQBAJ&hl=pt-BR&pg=PA1&img=1&zoom=3&bul=1&sig=ACfU3U3UHbxch1bvQPlcJwrKk-R6qzIUlA&w=1280",
+            "dayOfWeek": "Sábado",
+            "lastDayWatched": "25/07/2023",
+            "episodesWatched": 24,
+            "progress": "Completo",
+            "season": "Outono"
         }
     ]
 }
