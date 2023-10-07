@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import homeWallpaper from '../../../assets/homeWallpaper.png';
+import homeWallpaper from '../../../assets/homeWallpaper.jpg';
 
 export const Container = styled.div`
     height: 100%;
