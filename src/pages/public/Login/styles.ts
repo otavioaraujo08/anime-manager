@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import loginWallper from '../../../assets/loginWallpaper.png';
+import loginWallper from '../../../assets/loginWallpaper.jpg';
 
 export const Container = styled.div`
     height: 100%;
