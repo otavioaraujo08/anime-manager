@@ -14,5 +14,9 @@ class AnimeService {
     ): Promise<AnimeData[]> => {
         return this.api.get(`${defaultUrl}/animes`, { params });
     };
+
+    public updateAnimeInfos = async (animeId: number, data: AnimeData) => {
+        return this.api.put(`${defaultUrl}/animes/${animeId}`, data);
+    };
 }
 export const animeService = new AnimeService(apiService);
