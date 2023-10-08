@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Login } from '../pages/public/Login/Index';
 import { Home } from '../pages/private/home';
+import { CreateAnime } from '../pages/private/createAnime';
+import { Login } from '../pages/public/Login';
 
 export const router = createBrowserRouter([
     {
@@ -10,5 +11,9 @@ export const router = createBrowserRouter([
     {
         path: '/home',
         element: <Home />,
+    },
+    {
+        path: '/create-anime-info',
+        element: <CreateAnime />,
     },
 ]);
