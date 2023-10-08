@@ -9,22 +9,60 @@ import {
     FieldLabel,
     SelectField,
     TextField,
+    WarningText,
 } from './styles';
 import { daysOfWeek } from '../../../../utils/daysOfWeek';
 import { progress } from '../../../../utils/progress';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { seasons } from '../../../../utils/season';
 
 interface EditAnimeModalProps {
     id: number;
+    userId: number;
     isOpen: boolean;
     closeModal: () => void;
+    reload: () => void;
 }
+
+type IFormInput = {
+    title: string;
+    photo: string;
+    dayOfWeek: string;
+    lastDayWatched: string;
+    episodesWatched: number;
+    progress: string;
+    season: string;
+};
 
 export const EditAnimeModal = ({
     id,
+    userId,
     isOpen,
     closeModal,
+    reload,
 }: EditAnimeModalProps) => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<IFormInput>();
     const [animeData, setAnimeData] = useState<AnimeData>();
+
+    const handleUpdateAnimeInfos: SubmitHandler<IFormInput> = async (
+        data: IFormInput
+    ) => {
+        try {
+            await animeService.updateAnimeInfos(animeData?.id || 1, {
+                ...data,
+                userId,
+            });
+
+            reload();
+            closeModal();
+        } catch (error: any) {
+            alert(error.message);
+        }
+    };
 
     useEffect(() => {
         const handleGetAnimeData = async (id: number) => {
@@ -50,76 +88,133 @@ export const EditAnimeModal = ({
             isOpen={isOpen}
             closeModal={closeModal}
         >
-            <Container>
-                <ContainerField>
-                    <FieldLabel>Nome</FieldLabel>
+            {animeData ? (
+                <Container onSubmit={handleSubmit(handleUpdateAnimeInfos)}>
+                    <ContainerField>
+                        <FieldLabel>Nome</FieldLabel>
 
-                    <TextField placeholder="Digite o nome aqui..." />
-                </ContainerField>
+                        <TextField
+                            placeholder="Digite o nome aqui..."
+                            {...register('title', { required: true })}
+                            defaultValue={animeData?.title}
+                        />
 
-                <ContainerField>
-                    <FieldLabel>Foto</FieldLabel>
+                        {errors.title && (
+                            <WarningText>Campo obrigatório !</WarningText>
+                        )}
+                    </ContainerField>
 
-                    <TextField placeholder="Insira a URL aqui..." type="url" />
-                </ContainerField>
+                    <ContainerField>
+                        <FieldLabel>Foto</FieldLabel>
 
-                <ContainerField>
-                    <FieldLabel>Data de exibição</FieldLabel>
+                        <TextField
+                            placeholder="Insira a URL aqui..."
+                            type="url"
+                            {...register('photo', { required: true })}
+                            defaultValue={animeData?.photo}
+                        />
 
-                    <SelectField>
-                        {daysOfWeek.map((day) => (
-                            <option key={day.value} value={day.value}>
-                                {day.name}
-                            </option>
-                        ))}
-                    </SelectField>
-                </ContainerField>
+                        {errors.photo && (
+                            <WarningText>Campo obrigatório !</WarningText>
+                        )}
+                    </ContainerField>
 
-                <ContainerField>
-                    <FieldLabel>Data da última exibição</FieldLabel>
+                    <ContainerField>
+                        <FieldLabel>Dia de exibição</FieldLabel>
 
-                    <TextField type="date" />
-                </ContainerField>
+                        <SelectField
+                            {...register('dayOfWeek', { required: true })}
+                            defaultValue={animeData?.dayOfWeek}
+                        >
+                            {daysOfWeek.map((day) => (
+                                <option key={day.value} value={day.value}>
+                                    {day.name}
+                                </option>
+                            ))}
+                        </SelectField>
 
-                <ContainerField>
-                    <FieldLabel>Episódios assistidos</FieldLabel>
+                        {errors.dayOfWeek && (
+                            <WarningText>Campo obrigatório !</WarningText>
+                        )}
+                    </ContainerField>
 
-                    <TextField
-                        placeholder="Digite a quantidade aqui"
-                        type="number"
-                    />
-                </ContainerField>
+                    <ContainerField>
+                        <FieldLabel>Data da última exibição</FieldLabel>
 
-                <ContainerField>
-                    <FieldLabel>Progresso</FieldLabel>
+                        <TextField
+                            type="date"
+                            defaultValue={animeData?.lastDayWatched}
+                            {...register('lastDayWatched', { required: true })}
+                        />
 
-                    <SelectField>
-                        {progress.map((progress) => (
-                            <option key={progress.value} value={progress.value}>
-                                {progress.name}
-                            </option>
-                        ))}
-                    </SelectField>
-                </ContainerField>
+                        {errors.lastDayWatched && (
+                            <WarningText>Campo obrigatório !</WarningText>
+                        )}
+                    </ContainerField>
 
-                <ContainerField>
-                    <FieldLabel>Progresso</FieldLabel>
+                    <ContainerField>
+                        <FieldLabel>Episódios assistidos</FieldLabel>
 
-                    <SelectField>
-                        {progress.map((progress) => (
-                            <option key={progress.value} value={progress.value}>
-                                {progress.name}
-                            </option>
-                        ))}
-                    </SelectField>
-                </ContainerField>
+                        <TextField
+                            defaultValue={animeData?.episodesWatched}
+                            {...register('episodesWatched', { required: true })}
+                            placeholder="Digite a quantidade aqui"
+                            type="number"
+                        />
 
-                <ContainerField>
-                    <FieldLabel>Salvar alterações</FieldLabel>
+                        {errors.episodesWatched && (
+                            <WarningText>Campo obrigatório !</WarningText>
+                        )}
+                    </ContainerField>
 
-                    <Button>Salvar</Button>
-                </ContainerField>
-            </Container>
+                    <ContainerField>
+                        <FieldLabel>Progresso</FieldLabel>
+
+                        <SelectField
+                            {...register('progress', { required: true })}
+                            defaultValue={animeData?.progress}
+                        >
+                            {progress.map((progress) => (
+                                <option
+                                    key={progress.value}
+                                    value={progress.value}
+                                >
+                                    {progress.name}
+                                </option>
+                            ))}
+                        </SelectField>
+
+                        {errors.progress && (
+                            <WarningText>Campo obrigatório !</WarningText>
+                        )}
+                    </ContainerField>
+
+                    <ContainerField>
+                        <FieldLabel>Temporada</FieldLabel>
+
+                        <SelectField
+                            {...register('season', { required: true })}
+                            defaultValue={animeData?.season}
+                        >
+                            {seasons.map((season) => (
+                                <option key={season.value} value={season.value}>
+                                    {season.name}
+                                </option>
+                            ))}
+                        </SelectField>
+
+                        {errors.season && (
+                            <WarningText>Campo obrigatório !</WarningText>
+                        )}
+                    </ContainerField>
+
+                    <ContainerField>
+                        <FieldLabel>Salvar alterações</FieldLabel>
+
+                        <Button type="submit">Salvar</Button>
+                    </ContainerField>
+                </Container>
+            ) : null}
         </Modal>
     );
 };
