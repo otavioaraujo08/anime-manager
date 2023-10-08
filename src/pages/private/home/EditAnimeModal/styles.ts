@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.form`
     height: 80%;
     max-height: 32rem;
     margin: 2rem;
@@ -30,6 +30,14 @@ export const TextField = styled.input`
     height: 2rem;
     border: 1px solid #ccc;
     border-radius: 6px;
+`;
+
+export const WarningText = styled.span`
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: #c1121f;
 `;
 
 export const SelectField = styled.select`
