@@ -16,6 +16,7 @@ import { useState, useEffect } from 'react';
 import { AnimeModal } from './AnimeModal';
 import { animeService } from '../../../services/anime';
 import { AnimeData } from '../../../interfaces/animes';
+import { EditAnimeModal } from './EditAnimeModal';
 
 interface IAnimeData {
     isModalOpen: boolean;
@@ -37,23 +38,28 @@ export const Home = () => {
             userId: 1,
         },
     });
+    const [modalEditInfo, setModalEditInfo] = useState({
+        isModalOpen: false,
+        id: 0,
+    });
     const [animeListOriginal, setAnimeListOriginal] = useState<AnimeData[]>();
     const [animeList, setAnimeList] = useState<AnimeData[]>();
     const [searchFilter, setSearchFilter] = useState<string>('');
+
     const { state } = useLocation();
 
     const handleChangeFilter = (animeName: string) => {
         return setSearchFilter(animeName);
     };
 
-    const handleChangeModalStatus = (animeInfos: AnimeData) => {
+    const handleChangeModalViewStatus = (animeInfos: AnimeData) => {
         setAnimeData({
             isModalOpen: !animeData.isModalOpen,
             animeData: animeInfos,
         });
     };
 
-    const handleCloseModal = () => {
+    const handleCloseViewModal = () => {
         setAnimeData({
             isModalOpen: false,
             animeData: {
@@ -70,10 +76,28 @@ export const Home = () => {
         });
     };
 
+    const handleOpenEditModal = (id: number) => {
+        setModalEditInfo({
+            isModalOpen: true,
+            id,
+        });
+    };
+
+    const handleCloseEditModal = () => {
+        handleCloseViewModal();
+
+        setModalEditInfo({
+            id: 0,
+            isModalOpen: false,
+        });
+    };
+
     useEffect(() => {
         const handleGetAnimesData = async () => {
             try {
-                const response = await animeService.getAnimesInfo(state.id);
+                const response = await animeService.getAnimesInfo({
+                    userId: state.id,
+                });
 
                 setAnimeListOriginal(response);
             } catch (error: any) {
@@ -123,7 +147,9 @@ export const Home = () => {
                         {animeList?.map((anime: AnimeData) => (
                             <AnimeBox
                                 key={anime.id}
-                                onClick={() => handleChangeModalStatus(anime)}
+                                onClick={() =>
+                                    handleChangeModalViewStatus(anime)
+                                }
                             >
                                 <AnimeImage
                                     src={anime.photo}
@@ -142,7 +168,14 @@ export const Home = () => {
             <AnimeModal
                 isOpen={animeData.isModalOpen}
                 animeData={animeData.animeData}
-                closeModal={handleCloseModal}
+                closeModal={handleCloseViewModal}
+                openEditModal={handleOpenEditModal}
+            />
+
+            <EditAnimeModal
+                isOpen={modalEditInfo.isModalOpen}
+                closeModal={handleCloseEditModal}
+                id={modalEditInfo.id}
             />
         </>
     );
