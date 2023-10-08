@@ -13,14 +13,17 @@ interface AnimeModalProps {
     animeData: AnimeData;
     isOpen: boolean;
     closeModal: () => void;
+    openEditModal: (id: number) => void;
 }
 
 export const AnimeModal = ({
     animeData,
     isOpen,
     closeModal,
+    openEditModal,
 }: AnimeModalProps) => {
     const {
+        id,
         photo,
         title,
         season,
@@ -74,7 +77,7 @@ export const AnimeModal = ({
                         Progresso: <strong>{progress || 'Progresso'}</strong>
                     </AnimeModalTitle>
 
-                    <EditModalDiv>
+                    <EditModalDiv onClick={() => openEditModal(id)}>
                         <Pencil size={25} color="#210303" weight="bold" />
                     </EditModalDiv>
                 </AnimeModalInfos>
