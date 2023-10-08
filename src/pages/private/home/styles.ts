@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import homeWallpaper from '../../../assets/homeWallpaper.jpg';
 
 export const Container = styled.div`
     height: 100%;
@@ -9,9 +8,7 @@ export const Container = styled.div`
     justify-content: left;
     gap: 1.5rem;
     text-align: left;
-    background-image: url(${homeWallpaper});
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: #212121;
 `;
 
 export const Header = styled.div`
@@ -70,6 +67,15 @@ export const Body = styled.div`
     padding: 0 2rem;
 `;
 
+export const BodyWithoutAnimes = styled.div`
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+`;
+
 export const GenericSubtitle = styled.h2`
     font-family: 'Asap', sans-serif;
     font-size: 1.6rem;
@@ -83,6 +89,21 @@ export const GenericSubtitle = styled.h2`
 
     @media (max-width: 600px) {
         font-size: 1.2rem;
+    }
+`;
+
+export const ButtonAddAnimes = styled.button`
+    height: 3rem;
+    width: 15rem;
+    border: none;
+    border-radius: 2%;
+    background: #fca311;
+    color: #fff;
+    cursor: pointer;
+    transition: 2s;
+
+    &:hover {
+        background: #b97507;
     }
 `;
 
