@@ -11,27 +11,33 @@ import {
     AnimeBox,
     AnimeTitle,
     AnimeSubtitle,
-    AnimeModalContainer,
-    AnimeModalImage,
-    AnimeModalTitle,
-    AnimeModalInfos,
-    EditModalDiv,
 } from './styles';
 import { useState, useEffect } from 'react';
-import { Pencil } from '@phosphor-icons/react';
+import { AnimeModal } from './AnimeModal';
+import { animeService } from '../../../services/anime';
 import { AnimeData } from '../../../interfaces/animes';
-import { Modal } from '../../../components/Modal';
 
 interface IAnimeData {
     isModalOpen: boolean;
-    animeData: AnimeData | {};
+    animeData: AnimeData;
 }
 
 export const Home = () => {
     const [animeData, setAnimeData] = useState<IAnimeData>({
         isModalOpen: false,
-        animeData: {},
+        animeData: {
+            id: 1,
+            title: '',
+            dayOfWeek: '',
+            episodesWatched: 1,
+            lastDayWatched: '',
+            photo: '',
+            progress: '',
+            season: '',
+            userId: 1,
+        },
     });
+    const [animeListOriginal, setAnimeListOriginal] = useState<AnimeData[]>();
     const [animeList, setAnimeList] = useState<AnimeData[]>();
     const [searchFilter, setSearchFilter] = useState<string>('');
     const { state } = useLocation();
@@ -40,20 +46,58 @@ export const Home = () => {
         return setSearchFilter(animeName);
     };
 
-    const handleChangeModalStatus = (animeInfos?: AnimeData) => {
+    const handleChangeModalStatus = (animeInfos: AnimeData) => {
         setAnimeData({
             isModalOpen: !animeData.isModalOpen,
-            animeData: animeInfos || {},
+            animeData: animeInfos,
+        });
+    };
+
+    const handleCloseModal = () => {
+        setAnimeData({
+            isModalOpen: false,
+            animeData: {
+                id: 1,
+                title: '',
+                dayOfWeek: '',
+                episodesWatched: 1,
+                lastDayWatched: '',
+                photo: '',
+                progress: '',
+                season: '',
+                userId: 1,
+            },
         });
     };
 
     useEffect(() => {
-        setAnimeList(
-            state.animes.filter((anime: AnimeData) =>
-                anime.title.toLocaleLowerCase().includes(searchFilter)
-            )
-        );
-    }, [searchFilter, state]);
+        const handleGetAnimesData = async () => {
+            try {
+                const response = await animeService.getAnimesInfo(state.id);
+
+                setAnimeListOriginal(response);
+            } catch (error: any) {
+                alert(error.message);
+            }
+        };
+
+        handleGetAnimesData();
+    }, [state]);
+
+    useEffect(() => {
+        if (searchFilter) {
+            const filteredAnimeList = animeListOriginal?.filter(
+                (anime: AnimeData) =>
+                    anime.title
+                        .toLocaleLowerCase()
+                        .includes(searchFilter.toLowerCase())
+            );
+
+            setAnimeList(filteredAnimeList);
+        } else {
+            setAnimeList(animeListOriginal);
+        }
+    }, [searchFilter, animeListOriginal]);
 
     return (
         <>
@@ -95,75 +139,11 @@ export const Home = () => {
                 </Body>
             </Container>
 
-            <Modal
-                title="Informações"
+            <AnimeModal
                 isOpen={animeData.isModalOpen}
-                closeModal={handleChangeModalStatus}
-            >
-                <AnimeModalContainer>
-                    <>
-                        <AnimeModalImage
-                            src={
-                                animeData.animeData?.photo ||
-                                'https://defeatzone.com/wp-content/uploads/2023/09/a.png'
-                            }
-                            alt="anime photo"
-                        />
-                    </>
-
-                    <AnimeModalInfos>
-                        <AnimeModalTitle>
-                            Título:{' '}
-                            <strong>
-                                {animeData.animeData?.title || 'Nome padrão'}
-                            </strong>
-                        </AnimeModalTitle>
-
-                        <AnimeModalTitle>
-                            Temporada:{' '}
-                            <strong>
-                                {animeData.animeData?.season ||
-                                    'Temporada Atual'}
-                            </strong>
-                        </AnimeModalTitle>
-
-                        <AnimeModalTitle>
-                            Dia de exibição:{' '}
-                            <strong>
-                                {animeData.animeData?.dayOfWeek ||
-                                    'Dia aleatorio'}
-                            </strong>
-                        </AnimeModalTitle>
-
-                        <AnimeModalTitle>
-                            Episódios assistidos:{' '}
-                            <strong>
-                                {animeData.animeData?.episodesWatched ||
-                                    'Quantidade aleatoria'}
-                            </strong>
-                        </AnimeModalTitle>
-
-                        <AnimeModalTitle>
-                            Última exibição:{' '}
-                            <strong>
-                                {animeData.animeData?.lastDayWatched ||
-                                    'Data aleatorio'}
-                            </strong>
-                        </AnimeModalTitle>
-
-                        <AnimeModalTitle>
-                            Progresso:{' '}
-                            <strong>
-                                {animeData.animeData?.progress || 'Progresso'}
-                            </strong>
-                        </AnimeModalTitle>
-
-                        <EditModalDiv>
-                            <Pencil size={25} color="#210303" weight="bold" />
-                        </EditModalDiv>
-                    </AnimeModalInfos>
-                </AnimeModalContainer>
-            </Modal>
+                animeData={animeData.animeData}
+                closeModal={handleCloseModal}
+            />
         </>
     );
 };
