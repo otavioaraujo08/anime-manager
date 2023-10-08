@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
     Container,
     GenericTitle,
@@ -11,6 +11,8 @@ import {
     AnimeBox,
     AnimeTitle,
     AnimeSubtitle,
+    BodyWithoutAnimes,
+    ButtonAddAnimes,
 } from './styles';
 import { useState, useEffect } from 'react';
 import { AnimeModal } from './AnimeModal';
@@ -46,6 +48,7 @@ export const Home = () => {
     const [animeList, setAnimeList] = useState<AnimeData[]>();
     const [searchFilter, setSearchFilter] = useState<string>('');
 
+    const navigate = useNavigate();
     const { state } = useLocation();
 
     const handleChangeFilter = (animeName: string) => {
@@ -89,6 +92,12 @@ export const Home = () => {
         setModalEditInfo({
             id: 0,
             isModalOpen: false,
+        });
+    };
+
+    const handleRedirectPage = () => {
+        navigate('/create-anime-info', {
+            state: state,
         });
     };
 
@@ -141,27 +150,44 @@ export const Home = () => {
                 </Header>
 
                 <Body>
-                    <GenericSubtitle>Animes</GenericSubtitle>
+                    {animeList?.length ? (
+                        <>
+                            <GenericSubtitle>Animes</GenericSubtitle>
 
-                    <AnimesBox>
-                        {animeList?.map((anime: AnimeData) => (
-                            <AnimeBox
-                                key={anime.id}
-                                onClick={() =>
-                                    handleChangeModalViewStatus(anime)
-                                }
-                            >
-                                <AnimeImage
-                                    src={anime.photo}
-                                    alt={anime.title}
-                                    loading="lazy"
-                                />
+                            <AnimesBox>
+                                {animeList?.map((anime: AnimeData) => (
+                                    <AnimeBox
+                                        key={anime.id}
+                                        onClick={() =>
+                                            handleChangeModalViewStatus(anime)
+                                        }
+                                    >
+                                        <AnimeImage
+                                            src={anime.photo}
+                                            alt={anime.title}
+                                            loading="lazy"
+                                        />
 
-                                <AnimeTitle>{anime.title}</AnimeTitle>
-                                <AnimeSubtitle>{anime.progress}</AnimeSubtitle>
-                            </AnimeBox>
-                        ))}
-                    </AnimesBox>
+                                        <AnimeTitle>{anime.title}</AnimeTitle>
+                                        <AnimeSubtitle>
+                                            {anime.progress}
+                                        </AnimeSubtitle>
+                                    </AnimeBox>
+                                ))}
+                            </AnimesBox>
+                        </>
+                    ) : (
+                        <BodyWithoutAnimes>
+                            <GenericSubtitle>
+                                Vocë náo possui animes no momento, deseja
+                                adicionar ?
+                            </GenericSubtitle>
+
+                            <ButtonAddAnimes onClick={handleRedirectPage}>
+                                Adicionar anime
+                            </ButtonAddAnimes>
+                        </BodyWithoutAnimes>
+                    )}
                 </Body>
             </Container>
 
