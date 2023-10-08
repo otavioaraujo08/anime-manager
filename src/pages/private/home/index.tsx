@@ -92,19 +92,19 @@ export const Home = () => {
         });
     };
 
+    const handleGetAnimesData = async () => {
+        try {
+            const response = await animeService.getAnimesInfo({
+                userId: state.id,
+            });
+
+            setAnimeListOriginal(response);
+        } catch (error: any) {
+            alert(error.message);
+        }
+    };
+
     useEffect(() => {
-        const handleGetAnimesData = async () => {
-            try {
-                const response = await animeService.getAnimesInfo({
-                    userId: state.id,
-                });
-
-                setAnimeListOriginal(response);
-            } catch (error: any) {
-                alert(error.message);
-            }
-        };
-
         handleGetAnimesData();
     }, [state]);
 
@@ -176,6 +176,8 @@ export const Home = () => {
                 isOpen={modalEditInfo.isModalOpen}
                 closeModal={handleCloseEditModal}
                 id={modalEditInfo.id}
+                userId={state.id}
+                reload={handleGetAnimesData}
             />
         </>
     );
