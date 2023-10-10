@@ -16,10 +16,11 @@ export const BrandingContainer = styled.div`
     gap: 6rem;
 `;
 
-export const Header = styled.div`
+export const Header = styled.div<{ $branding: boolean }>`
     display: flex;
-    align-items: center;
-    gap: 0.6rem;
+    flex-direction: ${(props) => (props.$branding ? 'row' : 'column')};
+    align-items: ${(props) => (props.$branding ? 'center' : 'left')};
+    gap: ${(props) => (props.$branding ? '0.6rem' : 0)};
 `;
 
 export const LogoImage = styled.img`
@@ -27,11 +28,11 @@ export const LogoImage = styled.img`
     height: 4rem;
 `;
 
-export const HeaderTitle = styled.h1`
+export const HeaderTitle = styled.h1<{ $branding: boolean }>`
     font-size: 2rem;
     font-weight: 500;
     font-family: 'Poppins', sans-serif;
-    color: #ffffff;
+    color: ${(props) => (props.$branding ? '#ffffff' : '#000000')};
 `;
 
 export const Body = styled.div`
@@ -59,14 +60,21 @@ export const BodyTitle = styled.h1`
     color: #ffffff;
 `;
 
-export const BodySubtitle = styled.h1`
+export const BodySubtitle = styled.h1<{ $branding: boolean }>`
     text-align: left;
     font-size: 1.2rem;
     font-weight: 400;
     font-family: 'Poppins', sans-serif;
-    color: #e5dddd;
+    color: ${(props) => (props.$branding ? '#e5dddd' : '#c4c4c4')};
 `;
 
 export const FormContiainer = styled.div`
     width: 65%;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 2rem;
+    background: #fafafa;
+    gap: 6rem;
 `;
+
+export const Form = styled.form``;
