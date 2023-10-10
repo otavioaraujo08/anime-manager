@@ -19,6 +19,8 @@ import { AnimeModal } from './AnimeModal';
 import { animeService } from '../../../services/anime';
 import { AnimeData } from '../../../interfaces/animes';
 import { EditAnimeModal } from './EditAnimeModal';
+import { FloatButton } from '../../../components/FloatButton';
+import { Plus } from '@phosphor-icons/react';
 
 interface IAnimeData {
     isModalOpen: boolean;
@@ -175,6 +177,10 @@ export const Home = () => {
                                     </AnimeBox>
                                 ))}
                             </AnimesBox>
+
+                            <FloatButton onClick={handleRedirectPage}>
+                                <Plus size={30} color="#c4c4c4" weight="bold" />
+                            </FloatButton>
                         </>
                     ) : (
                         <BodyWithoutAnimes>
