@@ -8,6 +8,7 @@ import {
     BodyTitle,
     BrandingContainer,
     Container,
+    Form,
     FormContiainer,
     Header,
     HeaderTitle,
@@ -18,10 +19,10 @@ export const CreateAnime = () => {
     return (
         <Container>
             <BrandingContainer>
-                <Header>
+                <Header $branding>
                     <LogoImage src={logo} alt="anime logo" loading="lazy" />
 
-                    <HeaderTitle>AniManager</HeaderTitle>
+                    <HeaderTitle $branding={true}>AniManager</HeaderTitle>
                 </Header>
 
                 <Body>
@@ -30,7 +31,7 @@ export const CreateAnime = () => {
                     <BodyText>
                         <BodyTitle>Ajudando a gerenciar seus animes</BodyTitle>
 
-                        <BodySubtitle>
+                        <BodySubtitle $branding>
                             Adicione as informações do seu anime favorito e
                             contribua para um acompanhamento diário dos
                             episódios da temporada
@@ -38,8 +39,19 @@ export const CreateAnime = () => {
                     </BodyText>
                 </Body>
             </BrandingContainer>
+
             <FormContiainer>
-                <h1>Adicionar informações</h1>
+                <Header $branding={false}>
+                    <HeaderTitle $branding={false}>
+                        Adicionar informações
+                    </HeaderTitle>
+                    <BodySubtitle $branding={false}>
+                        Adicione as informações necessárias para salvar os dados
+                        do seu anime.
+                    </BodySubtitle>
+                </Header>
+
+                <Form></Form>
             </FormContiainer>
         </Container>
     );
