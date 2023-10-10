@@ -8,13 +8,13 @@ import {
     ContainerField,
     FieldLabel,
     SelectField,
-    TextField,
     WarningText,
 } from './styles';
 import { daysOfWeek } from '../../../../utils/daysOfWeek';
 import { progress } from '../../../../utils/progress';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { seasons } from '../../../../utils/season';
+import { TextField } from '../../../../components/TextField';
 
 interface EditAnimeModalProps {
     id: number;
@@ -94,7 +94,7 @@ export const EditAnimeModal = ({
                         <FieldLabel>Nome</FieldLabel>
 
                         <TextField
-                            placeholder="Digite o nome aqui..."
+                            auxiliarText="Digite o nome aqui..."
                             {...register('title', { required: true })}
                             defaultValue={animeData?.title}
                         />
@@ -108,7 +108,7 @@ export const EditAnimeModal = ({
                         <FieldLabel>Foto</FieldLabel>
 
                         <TextField
-                            placeholder="Insira a URL aqui..."
+                            auxiliarText="Insira a URL aqui..."
                             type="url"
                             {...register('photo', { required: true })}
                             defaultValue={animeData?.photo}
@@ -158,7 +158,7 @@ export const EditAnimeModal = ({
                         <TextField
                             defaultValue={animeData?.episodesWatched}
                             {...register('episodesWatched', { required: true })}
-                            placeholder="Digite a quantidade aqui"
+                            auxiliarText="Digite a quantidade aqui"
                             type="number"
                         />
 
