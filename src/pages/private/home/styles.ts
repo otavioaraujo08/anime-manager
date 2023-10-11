@@ -8,28 +8,41 @@ export const Container = styled.div`
     justify-content: left;
     gap: 1.5rem;
     text-align: left;
-    background: #212121;
+    background: #2f4550;
 `;
 
 export const Header = styled.div`
     height: 5rem;
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    background: #586f7c;
     backdrop-filter: blur(3.5px);
     -webkit-backdrop-filter: blur(3.5px);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0rem 2rem;
+
+    & > div {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+`;
+
+export const LogoImage = styled.img`
+    width: 4rem;
+    height: 4rem;
+
+    @media (max-width: 600px) {
+        width: 3rem;
+        height: 3rem;
+    }
 `;
 
 export const GenericTitle = styled.h2`
-    font-family: 'Asap', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.6rem;
     font-weight: 500;
-    color: #000000;
+    color: #e5e5e5;
     letter-spacing: 0.1rem;
 
     @media (max-width: 800px) {
@@ -37,14 +50,14 @@ export const GenericTitle = styled.h2`
     }
 
     @media (max-width: 600px) {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 `;
 
 export const Textfield = styled.input`
     width: 20rem;
     height: 2rem;
-    border: 1px solid #ffc800;
+    border: 1px solid #e5e5e5;
     border-radius: 5%;
 
     @media (max-width: 800px) {
@@ -63,6 +76,7 @@ export const Textfield = styled.input`
 export const Body = styled.div`
     display: flex;
     flex-direction: column;
+    text-align: center;
     gap: 2rem;
     padding: 0 2rem;
 `;
@@ -77,10 +91,10 @@ export const BodyWithoutAnimes = styled.div`
 `;
 
 export const GenericSubtitle = styled.h2`
-    font-family: 'Asap', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.6rem;
     font-weight: 500;
-    color: #ffc800;
+    color: #e5e5e5;
     letter-spacing: 0.1rem;
 
     @media (max-width: 800px) {
@@ -146,7 +160,7 @@ export const AnimeImage = styled.img`
 `;
 
 export const AnimeTitle = styled.h3`
-    font-family: 'Asap', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.4rem;
     font-weight: 600;
     color: #ffffff;
@@ -162,7 +176,7 @@ export const AnimeTitle = styled.h3`
 `;
 
 export const AnimeSubtitle = styled.h4`
-    font-family: 'Asap', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
     font-weight: 500;
     color: #ffffff;
