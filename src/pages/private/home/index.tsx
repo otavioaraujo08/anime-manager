@@ -13,6 +13,7 @@ import {
     AnimeSubtitle,
     BodyWithoutAnimes,
     ButtonAddAnimes,
+    LogoImage,
 } from './styles';
 import { useState, useEffect } from 'react';
 import { AnimeModal } from './AnimeModal';
@@ -20,6 +21,7 @@ import { animeService } from '../../../services/anime';
 import { AnimeData } from '../../../interfaces/animes';
 import { EditAnimeModal } from './EditAnimeModal';
 import { FloatButton } from '../../../components/FloatButton';
+import logo from '../../../assets/logo.png';
 import { Plus } from '@phosphor-icons/react';
 
 interface IAnimeData {
@@ -138,10 +140,11 @@ export const Home = () => {
         <>
             <Container>
                 <Header>
-                    <GenericTitle>
-                        Seja bem vindo{' '}
-                        <strong>{state?.name || 'Usuário X'}</strong>
-                    </GenericTitle>
+                    <div>
+                        <LogoImage src={logo} alt="sharingan" />
+
+                        <GenericTitle>AniManager</GenericTitle>
+                    </div>
 
                     <Textfield
                         placeholder="Pesquise pelo nome do anime aqui..."
@@ -154,7 +157,7 @@ export const Home = () => {
                 <Body>
                     {animeList?.length ? (
                         <>
-                            <GenericSubtitle>Animes</GenericSubtitle>
+                            <GenericSubtitle>Todos os animes</GenericSubtitle>
 
                             <AnimesBox>
                                 {animeList?.map((anime: AnimeData) => (
