@@ -197,12 +197,14 @@ export const Home = () => {
                 </Body>
             </Container>
 
-            <AnimeModal
-                isOpen={animeData.isModalOpen}
-                animeData={animeData.animeData}
-                closeModal={handleCloseViewModal}
-                openEditModal={handleOpenEditModal}
-            />
+            {!modalEditInfo.isModalOpen && (
+                <AnimeModal
+                    isOpen={animeData.isModalOpen}
+                    animeData={animeData.animeData}
+                    closeModal={handleCloseViewModal}
+                    openEditModal={handleOpenEditModal}
+                />
+            )}
 
             <EditAnimeModal
                 isOpen={modalEditInfo.isModalOpen}
