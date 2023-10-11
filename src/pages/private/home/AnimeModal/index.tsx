@@ -77,7 +77,7 @@ export const AnimeModal = ({
                         Progresso: <strong>{progress || 'Progresso'}</strong>
                     </AnimeModalTitle>
 
-                    <EditModalDiv onClick={() => openEditModal(id)}>
+                    <EditModalDiv onClick={() => openEditModal(id || 1)}>
                         <Pencil size={25} color="#210303" weight="bold" />
                     </EditModalDiv>
                 </AnimeModalInfos>
