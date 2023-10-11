@@ -10,6 +10,10 @@ export const Container = styled.form`
     text-align: center;
     gap: 4rem;
     overflow-y: auto;
+
+    @media (max-width: 800px) {
+        gap: 2.5rem;
+    }
 `;
 
 export const ContainerField = styled.div`
@@ -23,6 +27,14 @@ export const FieldLabel = styled.label`
     font-weight: 600;
     letter-spacing: 0.1rem;
     font-family: 'IBM Plex Sans', sans-serif;
+
+    @media (max-width: 800px) {
+        font-size: 1rem;
+    }
+
+    @media (max-width: 600px) {
+        font-size: 0.8rem;
+    }
 `;
 
 export const TextFieldStyled = styled.input`
@@ -30,6 +42,10 @@ export const TextFieldStyled = styled.input`
     height: 2rem;
     border: 1px solid #ccc;
     border-radius: 6px;
+
+    @media (max-width: 800px) {
+        width: 100%;
+    }
 `;
 
 export const WarningText = styled.span`
@@ -38,6 +54,14 @@ export const WarningText = styled.span`
     letter-spacing: 0.1rem;
     font-family: 'IBM Plex Sans', sans-serif;
     color: #c1121f;
+
+    @media (max-width: 800px) {
+        font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+        font-size: 0.8rem;
+    }
 `;
 
 export const SelectField = styled.select`
@@ -45,6 +69,10 @@ export const SelectField = styled.select`
     height: 2rem;
     border: 1px solid #ccc;
     border-radius: 6px;
+
+    @media (max-width: 800px) {
+        width: 100%;
+    }
 `;
 
 export const Button = styled.button`
@@ -55,6 +83,10 @@ export const Button = styled.button`
     border: none;
     cursor: pointer;
     transition: 1s;
+
+    @media (max-width: 800px) {
+        width: 100%;
+    }
 
     &:hover {
         background-color: #22577a;
