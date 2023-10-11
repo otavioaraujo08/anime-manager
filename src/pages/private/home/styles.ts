@@ -57,8 +57,6 @@ export const GenericTitle = styled.h2`
 export const Textfield = styled.input`
     width: 20rem;
     height: 2rem;
-    border: 1px solid #e5e5e5;
-    border-radius: 5%;
 
     @media (max-width: 800px) {
         width: 15rem;
@@ -68,7 +66,7 @@ export const Textfield = styled.input`
         width: 10rem;
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 450px) {
         display: none;
     }
 `;
