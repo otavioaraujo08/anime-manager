@@ -8,13 +8,13 @@ import {
     ContainerField,
     FieldLabel,
     SelectField,
+    TextFieldStyled,
     WarningText,
 } from './styles';
 import { daysOfWeek } from '../../../../utils/daysOfWeek';
 import { progress } from '../../../../utils/progress';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { seasons } from '../../../../utils/season';
-import { TextField } from '../../../../components/TextField';
 
 interface EditAnimeModalProps {
     id: number;
@@ -93,8 +93,8 @@ export const EditAnimeModal = ({
                     <ContainerField>
                         <FieldLabel>Nome</FieldLabel>
 
-                        <TextField
-                            auxiliarText="Digite o nome aqui..."
+                        <TextFieldStyled
+                            placeholder="Digite o nome aqui..."
                             {...register('title', { required: true })}
                             defaultValue={animeData?.title}
                         />
@@ -107,8 +107,8 @@ export const EditAnimeModal = ({
                     <ContainerField>
                         <FieldLabel>Foto</FieldLabel>
 
-                        <TextField
-                            auxiliarText="Insira a URL aqui..."
+                        <TextFieldStyled
+                            placeholder="Insira a URL aqui..."
                             type="url"
                             {...register('photo', { required: true })}
                             defaultValue={animeData?.photo}
@@ -141,7 +141,7 @@ export const EditAnimeModal = ({
                     <ContainerField>
                         <FieldLabel>Data da última exibição</FieldLabel>
 
-                        <TextField
+                        <TextFieldStyled
                             type="date"
                             defaultValue={animeData?.lastDayWatched}
                             {...register('lastDayWatched', { required: true })}
@@ -155,10 +155,10 @@ export const EditAnimeModal = ({
                     <ContainerField>
                         <FieldLabel>Episódios assistidos</FieldLabel>
 
-                        <TextField
+                        <TextFieldStyled
                             defaultValue={animeData?.episodesWatched}
                             {...register('episodesWatched', { required: true })}
-                            auxiliarText="Digite a quantidade aqui"
+                            placeholder="Digite a quantidade aqui"
                             type="number"
                         />
 
