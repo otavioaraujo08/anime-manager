@@ -25,6 +25,13 @@ export const FieldLabel = styled.label`
     font-family: 'IBM Plex Sans', sans-serif;
 `;
 
+export const TextFieldStyled = styled.input`
+    width: 20rem;
+    height: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+`;
+
 export const WarningText = styled.span`
     font-size: 1rem;
     font-weight: 600;
