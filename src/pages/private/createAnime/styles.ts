@@ -74,7 +74,56 @@ export const FormContiainer = styled.div`
     flex-direction: column;
     padding: 3rem 2rem;
     background: #fafafa;
-    gap: 6rem;
+    gap: 4rem;
 `;
 
-export const Form = styled.form``;
+export const Form = styled.form`
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 5rem;
+
+    & > div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        & > h1 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            color: #000000;
+        }
+    }
+`;
+
+export const TextFieldStyled = styled.input`
+    width: 20rem;
+    height: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+`;
+
+export const SelectFieldStyled = styled.select`
+    width: 20rem;
+    height: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+`;
+
+export const Button = styled.button`
+    width: 18rem;
+    height: 2.4rem;
+    background-color: #38a3a5;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 1s;
+
+    &:hover {
+        background-color: #22577a;
+    }
+`;
