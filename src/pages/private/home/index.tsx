@@ -23,6 +23,7 @@ import { EditAnimeModal } from './EditAnimeModal';
 import { FloatButton } from '../../../components/FloatButton';
 import logo from '../../../assets/logo.png';
 import { Plus } from '@phosphor-icons/react';
+import { AnimesByProgress } from './AnimesByProgress';
 
 interface IAnimeData {
     isModalOpen: boolean;
@@ -184,6 +185,8 @@ export const Home = () => {
                             <FloatButton onClick={handleRedirectPage}>
                                 <Plus size={30} color="#c4c4c4" weight="bold" />
                             </FloatButton>
+
+                            <AnimesByProgress animeList={animeList} />
                         </>
                     ) : (
                         <BodyWithoutAnimes>
