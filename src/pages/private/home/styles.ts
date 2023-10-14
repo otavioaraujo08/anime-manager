@@ -92,6 +92,7 @@ export const GenericSubtitle = styled.h2`
     font-weight: 500;
     color: #e5e5e5;
     letter-spacing: 0.1rem;
+    margin-bottom: 1rem;
 
     @media (max-width: 800px) {
         font-size: 1.4rem;
