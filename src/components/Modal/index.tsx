@@ -6,7 +6,7 @@ const ModalContainer = styled.div`
     width: 60rem;
     background: #ffffff;
     border-radius: 1%;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 0;
     right: 0;
