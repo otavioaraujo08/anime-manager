@@ -37,15 +37,26 @@
       "season": "Inverno"
     },
     {
-      "id": 3,
-      "userId": 2,
       "title": "Blue Lock",
       "photo": "https://books.google.com.br/books/publisher/content?id=MFQfEAAAQBAJ&hl=pt-BR&pg=PA1&img=1&zoom=3&bul=1&sig=ACfU3U3UHbxch1bvQPlcJwrKk-R6qzIUlA&w=1280",
       "dayOfWeek": "Sábado",
-      "lastDayWatched": "25/07/2023",
-      "episodesWatched": 24,
+      "lastDayWatched": "2023-06-15",
+      "episodesWatched": "24",
       "progress": "Completo",
-      "season": "Outono"
+      "season": "Outono",
+      "userId": 2,
+      "id": 3
+    },
+    {
+      "title": "Spy x Family",
+      "photo": "https://books.google.com.br/books/publisher/content?id=WtyLEAAAQBAJ&hl=pt-BR&pg=PA1&img=1&zoom=3&bul=1&sig=ACfU3U2VKZQtIVSqUyjser2EnizM7_MPGg&w=1280",
+      "dayOfWeek": "Sábado",
+      "lastDayWatched": "2022-10-12",
+      "episodesWatched": "25",
+      "progress": "Completo",
+      "season": "Outono",
+      "userId": 2,
+      "id": 4
     }
   ]
 }
