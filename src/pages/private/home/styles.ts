@@ -125,9 +125,9 @@ export const AnimesBox = styled.div`
 `;
 
 export const AnimeBox = styled.div`
+    max-width: 15rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     text-align: center;
     flex-wrap: wrap;
     gap: 1rem;
@@ -142,7 +142,8 @@ export const AnimeBox = styled.div`
 `;
 
 export const AnimeImage = styled.img`
-    width: fit-content;
+    width: 100%;
+    max-width: 14.8rem;
     height: 20rem;
     border: 2px solid #ffc800;
     border-radius: 10px;
@@ -157,8 +158,10 @@ export const AnimeImage = styled.img`
 `;
 
 export const AnimeTitle = styled.h3`
+    text-align: center;
+    word-break: break-word;
     font-family: 'Poppins', sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: #ffffff;
     letter-spacing: 0.1rem;
