@@ -24,6 +24,7 @@ import {
 } from './styles';
 import { animeService } from '../../../services/anime';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { ArrowUUpLeft } from '@phosphor-icons/react';
 
 type IFormInput = {
     title: string;
@@ -91,13 +92,25 @@ export const CreateAnime = () => {
 
             <FormContiainer>
                 <Header $branding={false}>
-                    <HeaderTitle $branding={false}>
-                        Adicionar informações
-                    </HeaderTitle>
-                    <BodySubtitle $branding={false}>
-                        Preencha as informações necessárias para salvar os dados
-                        do seu anime.
-                    </BodySubtitle>
+                    <ArrowUUpLeft
+                        size={22}
+                        color="#210303"
+                        weight="bold"
+                        style={{
+                            cursor: 'pointer',
+                        }}
+                        onClick={handleRedirectPage}
+                    />
+
+                    <div>
+                        <HeaderTitle $branding={false}>
+                            Adicionar informações
+                        </HeaderTitle>
+                        <BodySubtitle $branding={false}>
+                            Preencha as informações necessárias para salvar os
+                            dados do seu anime.
+                        </BodySubtitle>
+                    </div>
                 </Header>
 
                 <Form onSubmit={handleSubmit(handlePostAnimeInfos)}>
@@ -213,6 +226,8 @@ export const CreateAnime = () => {
                     </div>
 
                     <Body>
+                        <h1>Salvar alterações</h1>
+
                         <Button type="submit">Salvar</Button>
                     </Body>
                 </Form>
