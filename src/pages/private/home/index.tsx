@@ -216,7 +216,7 @@ export const Home = () => {
 
                                 <AnimesByProgress
                                     animeList={animeList}
-                                    progress="Não iniciado"
+                                    progress="Pausado"
                                 />
 
                                 <AnimesByProgress
