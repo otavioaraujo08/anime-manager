@@ -15,7 +15,6 @@ export const Header = styled.div`
     height: 5rem;
     background: #586f7c;
     backdrop-filter: blur(3.5px);
-    -webkit-backdrop-filter: blur(3.5px);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -75,8 +74,7 @@ export const Body = styled.div`
     display: flex;
     flex-direction: column;
     text-align: center;
-    gap: 2rem;
-    padding: 0 2rem;
+    gap: 3rem;
 `;
 
 export const BodyWithoutAnimes = styled.div`
@@ -188,4 +186,11 @@ export const AnimeSubtitle = styled.h4`
     @media (max-width: 600px) {
         font-size: 0.8rem;
     }
+`;
+
+export const AnimeByGenreBox = styled.div`
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 `;
