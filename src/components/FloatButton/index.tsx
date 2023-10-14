@@ -8,11 +8,14 @@ const Button = styled.button`
     background: #000000;
     color: #c4c4c4;
     cursor: pointer;
-    position: absolute;
-    top: 95%;
-    right: 2%;
-    margin: auto;
-    transform: translateY(-50%);
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    @media (max-width: 800px) {
+        height: 3rem;
+        width: 3rem;
+    }
 `;
 
 interface ButtonProps {
