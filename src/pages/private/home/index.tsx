@@ -14,6 +14,7 @@ import {
     BodyWithoutAnimes,
     ButtonAddAnimes,
     LogoImage,
+    AnimeByGenreBox,
 } from './styles';
 import { useState, useEffect } from 'react';
 import { AnimeModal } from './AnimeModal';
@@ -158,35 +159,71 @@ export const Home = () => {
                 <Body>
                     {animeList?.length ? (
                         <>
-                            <GenericSubtitle>Todos os animes</GenericSubtitle>
+                            <div
+                                style={{
+                                    padding: '0 2rem',
+                                }}
+                            >
+                                <GenericSubtitle>
+                                    Todos os animes
+                                </GenericSubtitle>
 
-                            <AnimesBox>
-                                {animeList?.map((anime: AnimeData) => (
-                                    <AnimeBox
-                                        key={anime.id}
-                                        onClick={() =>
-                                            handleChangeModalViewStatus(anime)
-                                        }
-                                    >
-                                        <AnimeImage
-                                            src={anime.photo}
-                                            alt={anime.title}
-                                            loading="lazy"
-                                        />
+                                <AnimesBox>
+                                    {animeList?.map((anime: AnimeData) => (
+                                        <AnimeBox
+                                            key={anime.id}
+                                            onClick={() =>
+                                                handleChangeModalViewStatus(
+                                                    anime
+                                                )
+                                            }
+                                        >
+                                            <AnimeImage
+                                                src={anime.photo}
+                                                alt={anime.title}
+                                                loading="lazy"
+                                            />
 
-                                        <AnimeTitle>{anime.title}</AnimeTitle>
-                                        <AnimeSubtitle>
-                                            {anime.progress}
-                                        </AnimeSubtitle>
-                                    </AnimeBox>
-                                ))}
-                            </AnimesBox>
+                                            <AnimeTitle>
+                                                {anime.title}
+                                            </AnimeTitle>
+                                            <AnimeSubtitle>
+                                                {anime.progress}
+                                            </AnimeSubtitle>
+                                        </AnimeBox>
+                                    ))}
+                                </AnimesBox>
 
-                            <FloatButton onClick={handleRedirectPage}>
-                                <Plus size={30} color="#c4c4c4" weight="bold" />
-                            </FloatButton>
+                                <FloatButton onClick={handleRedirectPage}>
+                                    <Plus
+                                        size={30}
+                                        color="#c4c4c4"
+                                        weight="bold"
+                                    />
+                                </FloatButton>
+                            </div>
 
-                            <AnimesByProgress animeList={animeList} />
+                            <AnimeByGenreBox>
+                                <AnimesByProgress
+                                    animeList={animeList}
+                                    progress="Não iniciado"
+                                />
+
+                                <AnimesByProgress
+                                    animeList={animeList}
+                                    progress="Em andamento"
+                                />
+
+                                <AnimesByProgress
+                                    animeList={animeList}
+                                    progress="Não iniciado"
+                                />
+
+                                <AnimesByProgress
+                                    animeList={animeList}
+                                    progress="Completo"
+                                />
+                            </AnimeByGenreBox>
                         </>
                     ) : (
                         <BodyWithoutAnimes>
