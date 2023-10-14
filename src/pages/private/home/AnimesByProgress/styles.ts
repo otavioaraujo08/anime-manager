@@ -33,7 +33,7 @@ export const AnimesDiv = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    width: 80%;
+    width: fit-content;
 `;
 
 export const AnimeDiv = styled.div`
@@ -66,7 +66,7 @@ export const AnimeDiv = styled.div`
         }
 
         &::-webkit-scrollbar-track {
-            background: #36647f;
+            background: transparent;
         }
 
         &::-webkit-scrollbar-thumb {
@@ -81,15 +81,17 @@ export const AnimeImage = styled.img`
     width: fit-content;
 `;
 
-export const Label = styled.h1`
+export const Label = styled.h1`\
+    max-width: 10rem;
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
     font-weight: 500;
     color: #e5e5e5;
     letter-spacing: 0.1rem;
 
-    @media (max-width: 800px) {
+    @media (max-width: 1200px) {
         font-size: 1rem;
+        max-width: 100%;
     }
 
     @media (max-width: 600px) {
@@ -98,14 +100,16 @@ export const Label = styled.h1`
 `;
 
 export const AnimeInfo = styled.p`
+    max-width: 10rem;
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     font-weight: 500;
     color: #99c923;
     letter-spacing: 0.1rem;
 
-    @media (max-width: 800px) {
+    @media (max-width: 1200px) {
         font-size: 0.8rem;
+        max-width: 100%;
     }
 
     @media (max-width: 600px) {
