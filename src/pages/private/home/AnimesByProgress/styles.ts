@@ -30,10 +30,26 @@ export const Title = styled.h1`
 `;
 
 export const AnimesDiv = styled.div`
+    max-height: 64vh;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     width: fit-content;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 0.6rem;
+        height: 0.6rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #1b6691;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #99c923;
+        border-radius: 10px;
+    }
 `;
 
 export const AnimeDiv = styled.div`
