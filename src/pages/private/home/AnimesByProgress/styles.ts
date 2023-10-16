@@ -97,7 +97,7 @@ export const AnimeImage = styled.img`
     width: fit-content;
 `;
 
-export const Label = styled.h1`\
+export const Label = styled.h1`
     max-width: 10rem;
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
