@@ -7,6 +7,11 @@ import {
     Container,
     Label,
     Title,
+    AnimeImageDiv,
+    AnimeTitleDiv,
+    AnimeDayOfWeekDiv,
+    AnimeEpisodesConcludedDiv,
+    AnimeLastExibitionDiv,
 } from './styles';
 
 interface AnimesByProgressProps {
@@ -31,21 +36,29 @@ export const AnimesByProgress = ({
             <AnimesDiv>
                 {filteredAnimeList.map((anime) => (
                     <AnimeDiv key={anime.id}>
-                        <AnimeImage alt={anime.title} src={anime.photo} />
+                        <AnimeImageDiv>
+                            <AnimeImage alt={anime.title} src={anime.photo} />
+                        </AnimeImageDiv>
 
-                        <div>
+                        <AnimeTitleDiv>
                             <Label>Título:</Label>
                             <AnimeInfo>{anime.title}</AnimeInfo>
+                        </AnimeTitleDiv>
 
+                        <AnimeDayOfWeekDiv>
                             <Label>Dia da semana:</Label>
                             <AnimeInfo>{anime.dayOfWeek}</AnimeInfo>
+                        </AnimeDayOfWeekDiv>
 
+                        <AnimeEpisodesConcludedDiv>
                             <Label>Episódios concluídos:</Label>
                             <AnimeInfo>{anime.episodesWatched}</AnimeInfo>
+                        </AnimeEpisodesConcludedDiv>
 
+                        <AnimeLastExibitionDiv>
                             <Label>Último dia concluído:</Label>
                             <AnimeInfo>{anime.lastDayWatched}</AnimeInfo>
-                        </div>
+                        </AnimeLastExibitionDiv>
                     </AnimeDiv>
                 ))}
             </AnimesDiv>
