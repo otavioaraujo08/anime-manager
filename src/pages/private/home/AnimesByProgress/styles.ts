@@ -56,39 +56,76 @@ export const AnimeDiv = styled.div`
     background: #586f7c;
     height: 10rem;
     width: 100%;
+    min-width: 73rem;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 8px;
+    grid-row-gap: 0px;
+
+    @media (max-width: 1200px) {
+        min-width: 0;
+    }
+
+    @media (max-width: 500px) {
+        grid-template-columns: repeat(4, 1fr);
+        height: 3rem;
+    }
+`;
+
+export const AnimeImageDiv = styled.div`
+    grid-area: 1 / 1 / 4 / 2;
     display: flex;
+    flex-direction: column;
+    justify-content: left;
 
-    & > div {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 2rem;
-        gap: 2.5rem;
-        overflow-y: scroll;
+    @media (max-width: 500px) {
+        display: none;
+    }
+`;
+export const AnimeTitleDiv = styled.div`
+    grid-area: 1 / 2 / 4 / 3;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
 
-        @media (max-width: 1200px) {
-            gap: 1rem;
-        }
+    @media (max-width: 500px) {
+        grid-area: 1 / 1 / 3 / 2;
+    }
+`;
+export const AnimeDayOfWeekDiv = styled.div`
+    grid-area: 1 / 3 / 4 / 4;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
 
-        @media (max-width: 250px) {
-            display: none;
-        }
+    @media (max-width: 500px) {
+        grid-area: 1 / 2 / 3 / 3;
+    }
+`;
+export const AnimeEpisodesConcludedDiv = styled.div`
+    grid-area: 1 / 4 / 4 / 5;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
 
-        &::-webkit-scrollbar {
-            width: 0.6rem;
-            height: 0.6rem;
-        }
+    @media (max-width: 500px) {
+        grid-area: 1 / 3 / 3 / 4;
+    }
+`;
+export const AnimeLastExibitionDiv = styled.div`
+    grid-area: 1 / 5 / 4 / 6;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
 
-        &::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        &::-webkit-scrollbar-thumb {
-            background: #99c923;
-            border-radius: 10px;
-        }
+    @media (max-width: 500px) {
+        grid-area: 1 / 4 / 3 / 5;
     }
 `;
 
@@ -113,6 +150,10 @@ export const Label = styled.h1`
     @media (max-width: 600px) {
         font-size: 0.8rem;
     }
+
+    @media (max-width: 500px) {
+        font-size: 0.6rem;
+    }
 `;
 
 export const AnimeInfo = styled.p`
@@ -130,5 +171,9 @@ export const AnimeInfo = styled.p`
 
     @media (max-width: 600px) {
         font-size: 0.6rem;
+    }
+
+    @media (max-width: 400px) {
+        font-size: 0.4rem;
     }
 `;
