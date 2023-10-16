@@ -56,6 +56,9 @@ export const Home = () => {
 
     const navigate = useNavigate();
     const { state } = useLocation();
+    const dayOfWeek = new Date().toLocaleDateString('pt-BR', {
+        weekday: 'long',
+    });
 
     const handleChangeFilter = (animeName: string) => {
         return setSearchFilter(animeName);
@@ -169,29 +172,42 @@ export const Home = () => {
                                 </GenericSubtitle>
 
                                 <AnimesBox>
-                                    {animeList?.map((anime: AnimeData) => (
-                                        <AnimeBox
-                                            key={anime.id}
-                                            onClick={() =>
-                                                handleChangeModalViewStatus(
-                                                    anime
-                                                )
-                                            }
-                                        >
-                                            <AnimeImage
-                                                src={anime.photo}
-                                                alt={anime.title}
-                                                loading="lazy"
-                                            />
+                                    {animeList?.map((anime: AnimeData) => {
+                                        const today =
+                                            anime.dayOfWeek.toLowerCase();
 
-                                            <AnimeTitle>
-                                                {anime.title}
-                                            </AnimeTitle>
-                                            <AnimeSubtitle>
-                                                {anime.progress}
-                                            </AnimeSubtitle>
-                                        </AnimeBox>
-                                    ))}
+                                        return (
+                                            <AnimeBox
+                                                key={anime.id}
+                                                onClick={() =>
+                                                    handleChangeModalViewStatus(
+                                                        anime
+                                                    )
+                                                }
+                                            >
+                                                <AnimeImage
+                                                    src={anime.photo}
+                                                    alt={anime.title}
+                                                    loading="lazy"
+                                                />
+
+                                                <AnimeTitle
+                                                    $today={dayOfWeek.includes(
+                                                        today
+                                                    )}
+                                                >
+                                                    {anime.title}
+                                                </AnimeTitle>
+                                                <AnimeSubtitle
+                                                    $today={dayOfWeek.includes(
+                                                        today
+                                                    )}
+                                                >
+                                                    {anime.progress}
+                                                </AnimeSubtitle>
+                                            </AnimeBox>
+                                        );
+                                    })}
                                 </AnimesBox>
 
                                 <FloatButton onClick={handleRedirectPage}>
