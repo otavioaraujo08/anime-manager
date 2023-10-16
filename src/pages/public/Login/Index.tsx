@@ -128,7 +128,7 @@ export const Login = () => {
                         </GenericTitle>
 
                         <Button onClick={() => changeLoginOption(true)}>
-                            Realizar login
+                            Entrar
                         </Button>
 
                         <Button onClick={() => changeLoginOption(false)}>
