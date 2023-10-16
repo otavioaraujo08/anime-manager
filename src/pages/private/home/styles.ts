@@ -125,7 +125,6 @@ export const AnimesBox = styled.div`
 `;
 
 export const AnimeBox = styled.div`
-    max-width: 15rem;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -140,6 +139,14 @@ export const AnimeBox = styled.div`
     -webkit-backdrop-filter: blur(6px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
+
+    @media (max-width: 800px) {
+        width: 10rem;
+    }
+
+    @media (max-width: 600px) {
+        width: 8rem;
+    }
 `;
 
 export const AnimeImage = styled.img`
@@ -163,27 +170,10 @@ export const AnimeTitle = styled.h3<{ $today: boolean }>`
     text-align: center;
     word-break: break-word;
     font-family: 'Poppins', sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: ${(props) => (props.$today ? '#ffc800' : '#ffffff')};
     letter-spacing: 0.1rem;
-
-    @media (max-width: 800px) {
-        font-size: 1.2rem;
-    }
-
-    @media (max-width: 600px) {
-        font-size: 1rem;
-    }
-`;
-
-export const AnimeSubtitle = styled.h4<{ $today: boolean }>`
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: ${(props) => (props.$today ? '#ffc800' : '#ffffff')};
-    letter-spacing: 0.1rem;
-    margin-bottom: 1rem;
 
     @media (max-width: 800px) {
         font-size: 1rem;
@@ -191,6 +181,23 @@ export const AnimeSubtitle = styled.h4<{ $today: boolean }>`
 
     @media (max-width: 600px) {
         font-size: 0.8rem;
+    }
+`;
+
+export const AnimeSubtitle = styled.h4<{ $today: boolean }>`
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: ${(props) => (props.$today ? '#ffc800' : '#ffffff')};
+    letter-spacing: 0.1rem;
+    margin-bottom: 1rem;
+
+    @media (max-width: 800px) {
+        font-size: 0.8rem;
+    }
+
+    @media (max-width: 600px) {
+        font-size: 0.6rem;
     }
 `;
 
