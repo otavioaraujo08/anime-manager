@@ -126,10 +126,18 @@ export const Form = styled.form`
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    gap: 5rem;
+    gap: 9rem;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 1600px) {
+        gap: 6.5rem;
+    }
+
+    @media (max-width: 1300px) {
         gap: 2.5rem;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     & > div {
