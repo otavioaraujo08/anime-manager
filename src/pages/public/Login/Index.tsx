@@ -1,16 +1,17 @@
 import { useState } from 'react';
-import {
-    Button,
-    Container,
-    GenericSubtitle,
-    GenericTitle,
-    LoginBox,
-    TextField,
-} from './styles';
+
 import { useDispatch } from 'react-redux';
 import { setName } from '../../../redux/features/nameSlice';
 import { userService } from '../../../services/user';
 import { useNavigate } from 'react-router-dom';
+import {
+    Container,
+    GenericTitle,
+    LoginBox,
+    Button,
+    GenericSubtitle,
+    TextField,
+} from './styles';
 
 export const Login = () => {
     const [username, setUsername] = useState<string>('');
