@@ -13,7 +13,7 @@ import {
     TextField,
 } from './styles';
 
-export const Login = () => {
+const Login = () => {
     const [username, setUsername] = useState<string>('');
     const [isLogin, setIsLogin] = useState({
         login: false,
@@ -141,3 +141,5 @@ export const Login = () => {
         </Container>
     );
 };
+
+export default Login;
