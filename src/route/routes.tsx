@@ -1,7 +1,7 @@
+import { CreateAnime } from '@pages/private/createAnime';
+import { Home } from '@pages/private/home';
+import { Login } from '@pages/public/login';
 import { createBrowserRouter } from 'react-router-dom';
-import { Home } from '../Pages/private/home';
-import { CreateAnime } from '../Pages/private/createAnime';
-import { Login } from '../Pages/public/login';
 
 export const router = createBrowserRouter([
     {
