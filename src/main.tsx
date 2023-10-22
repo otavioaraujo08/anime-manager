@@ -2,12 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import './index.css';
 import { store } from './redux/store';
 import { createBrowserRouter } from 'react-router-dom';
-import { Login } from '@pages/public/login';
-import { Home } from '@pages/private/home';
-import { CreateAnime } from '@pages/private/createAnime';
+
+import { Login } from './pages/public/login';
+import { Home } from './pages/private/home';
+import { CreateAnime } from './pages/private/createAnime';
+
+import './index.css';
 
 const router = createBrowserRouter([
     {
