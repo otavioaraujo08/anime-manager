@@ -64,9 +64,9 @@
             "dayOfWeek": "Quinta",
             "lastDayWatched": "2023-10-12",
             "episodesWatched": "0",
-            "progress": "Não iniciado",
+            "progress": "Em andamento",
             "season": "Outono",
-            "userId": 2,
+            "userId": 1,
             "id": 8
         },
         {
@@ -140,8 +140,8 @@
             "photo": "https://www.intoxianime.com/wp-content/uploads/2023/08/111440l-212x300.jpg",
             "dayOfWeek": "Quarta",
             "lastDayWatched": "2023-10-11",
-            "episodesWatched": "0",
-            "progress": "Não iniciado",
+            "episodesWatched": "3",
+            "progress": "Em andamento",
             "season": "Outono",
             "userId": 2,
             "id": 15
@@ -161,8 +161,8 @@
             "title": "Kanojo pi pi po po po",
             "photo": "https://www.intoxianime.com/wp-content/uploads/2023/08/136764l-213x300.jpg",
             "dayOfWeek": "Domingo",
-            "lastDayWatched": "2023-10-08",
-            "episodesWatched": "1",
+            "lastDayWatched": "2023-10-22",
+            "episodesWatched": "2",
             "progress": "Em andamento",
             "season": "Outono",
             "userId": 2,
@@ -191,7 +191,7 @@
             "id": 19
         },
         {
-            "title": "Jujutsu Kaisen 2 Dublado",
+            "title": "Jujutsu Kaisen 2",
             "photo": "https://meuanime.io/animes/capas/assistir-jujutsu-kaisen-2-dublado-todos-os-episodios-hd-meus-animes-online.jpg",
             "dayOfWeek": "Quinta",
             "lastDayWatched": "2023-10-12",
@@ -200,6 +200,28 @@
             "season": "Outono",
             "userId": 2,
             "id": 20
+        },
+        {
+            "title": "Good Night World",
+            "photo": "https://img.mangaschan.com/uploads/manga-images/g/good-night-world-end/thumbnail.webp",
+            "dayOfWeek": "Segunda",
+            "lastDayWatched": "2023-10-21",
+            "episodesWatched": "8",
+            "progress": "Em andamento",
+            "season": "Outono",
+            "userId": 2,
+            "id": 21
+        },
+        {
+            "title": "Hunter x Hunter",
+            "photo": "https://books.google.com.br/books/publisher/content?id=pAWhDwAAQBAJ&hl=pt-BR&pg=PA1&img=1&zoom=3&bul=1&sig=ACfU3U2xOZaZvi9vVGKyzD-kBJ2PmzBIRA&w=1280",
+            "dayOfWeek": "Segunda",
+            "lastDayWatched": "2023-10-22",
+            "episodesWatched": "1",
+            "progress": "Em andamento",
+            "season": "Verão",
+            "userId": 2,
+            "id": 22
         }
     ]
 }
