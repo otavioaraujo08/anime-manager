@@ -44,6 +44,7 @@ export const EditAnimeModal = ({
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm<IFormInput>();
     const [animeData, setAnimeData] = useState<AnimeData>();
@@ -58,10 +59,17 @@ export const EditAnimeModal = ({
             });
 
             reload();
-            closeModal();
+            reset();
+            handleCloseModal();
         } catch (error: any) {
             alert(error.message);
         }
+    };
+
+    const handleCloseModal = () => {
+        reset();
+        setAnimeData(undefined);
+        closeModal();
     };
 
     useEffect(() => {
@@ -86,7 +94,7 @@ export const EditAnimeModal = ({
         <Modal
             title="Editar informações"
             isOpen={isOpen}
-            closeModal={closeModal}
+            closeModal={handleCloseModal}
         >
             {animeData ? (
                 <Container onSubmit={handleSubmit(handleUpdateAnimeInfos)}>
