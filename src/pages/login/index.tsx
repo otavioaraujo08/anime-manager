@@ -1,8 +1,6 @@
 import { useState } from 'react';
 
 import { useDispatch } from 'react-redux';
-import { setName } from '../../../redux/features/nameSlice';
-import { userService } from '../../../services/user';
 import { useNavigate } from 'react-router-dom';
 import {
     Container,
@@ -12,6 +10,8 @@ import {
     GenericSubtitle,
     TextField,
 } from './styles';
+import { userService } from '../../services/user';
+import { setName } from '../../redux/features/nameSlice';
 
 export const Login = () => {
     const [username, setUsername] = useState<string>('');
