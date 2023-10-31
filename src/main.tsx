@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import { createBrowserRouter } from 'react-router-dom';
 
-import { Login } from './pages/public/Login';
+import { Login } from './pages/login';
 import { Home } from './pages/private/home';
 import { CreateAnime } from './pages/private/createAnime';
 
