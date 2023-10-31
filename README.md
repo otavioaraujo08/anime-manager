@@ -1,3 +1,4 @@
+<img src="./public/homeExample.png" width="100%" height="auto"/>
 
 # Anime Manager
 
@@ -6,6 +7,7 @@
 
 ## Challenges
 
+- Filter animes by user ✔️
 - List all animes, with photo and name and number of episodes watched ✔️
 - List animes by progress. Ex: Not started, in progress and finished ✔️
 - Possibility to create and update anime infos. ✔️
