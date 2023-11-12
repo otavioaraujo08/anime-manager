@@ -36,7 +36,7 @@ npm run database
 Start project
 
 ```bash
-git clone https://github.com/otavioaraujo08/anime-manager.git
+npm run dev
 ```
     
 ## Deploy
