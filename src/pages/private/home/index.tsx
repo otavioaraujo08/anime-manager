@@ -244,7 +244,7 @@ export const Home = () => {
                     ) : (
                         <BodyWithoutAnimes>
                             <GenericSubtitle>
-                                Vocë náo possui animes no momento, deseja
+                                Você não possui animes no momento, deseja
                                 adicionar ?
                             </GenericSubtitle>
 
