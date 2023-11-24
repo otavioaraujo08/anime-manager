@@ -18,25 +18,25 @@
 Clone the project
 
 ```bash
-  git clone https://github.com/otavioaraujo08/anime-manager.git
+git clone https://github.com/otavioaraujo08/anime-manager.git
 ```
 
 Install dependencies
 
 ```bash
-  npm install or npm i
+npm install
 ```
 
 Start database
 
 ```bash
-  npm run database
+npm run database
 ```
 
 Start project
 
 ```bash
-  git clone https://github.com/otavioaraujo08/anime-manager.git
+npm run dev
 ```
     
 ## Deploy
