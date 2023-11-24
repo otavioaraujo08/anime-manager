@@ -112,6 +112,7 @@ export const ButtonAddAnimes = styled.button`
     color: #fff;
     cursor: pointer;
     transition: 2s;
+    font-size: 1.1rem;
 
     &:hover {
         background: #b97507;
