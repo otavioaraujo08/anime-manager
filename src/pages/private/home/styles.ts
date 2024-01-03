@@ -166,14 +166,14 @@ export const AnimeImage = styled.img`
     }
 `;
 
-export const AnimeTitle = styled.h3<{ $today: boolean }>`
+export const AnimeTitle = styled.h3`
     max-width: 10rem;
     text-align: center;
     word-break: break-word;
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
-    color: ${(props) => (props.$today ? '#ffc800' : '#ffffff')};
+    color: #ffffff;
     letter-spacing: 0.1rem;
 
     @media (max-width: 800px) {
@@ -185,11 +185,11 @@ export const AnimeTitle = styled.h3<{ $today: boolean }>`
     }
 `;
 
-export const AnimeSubtitle = styled.h4<{ $today: boolean }>`
+export const AnimeSubtitle = styled.h4`
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     font-weight: 500;
-    color: ${(props) => (props.$today ? '#ffc800' : '#ffffff')};
+    color: #ffffff;
     letter-spacing: 0.1rem;
     margin-bottom: 1rem;
 
