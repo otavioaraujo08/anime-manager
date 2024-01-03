@@ -2,7 +2,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import {
     Container,
     GenericTitle,
-    GenericSubtitle,
     Header,
     Textfield,
     Body,
@@ -11,8 +10,6 @@ import {
     AnimeBox,
     AnimeTitle,
     AnimeSubtitle,
-    BodyWithoutAnimes,
-    ButtonAddAnimes,
     LogoImage,
 } from './styles';
 import { useState, useEffect } from 'react';
@@ -26,6 +23,7 @@ import { Plus } from '@phosphor-icons/react';
 import { Title } from '@components/Title';
 import { AnimesByGenre } from './AnimesByGenre';
 import { TodayAnimes } from './TodayAnimes';
+import { NoAnimeDiv } from './NoAnimeDiv';
 
 interface IAnimeData {
     isModalOpen: boolean;
@@ -218,16 +216,7 @@ export const Home = () => {
                             <AnimesByGenre animeList={animeList} />
                         </>
                     ) : (
-                        <BodyWithoutAnimes>
-                            <GenericSubtitle>
-                                Você não possui animes no momento, deseja
-                                adicionar ?
-                            </GenericSubtitle>
-
-                            <ButtonAddAnimes onClick={handleRedirectPage}>
-                                Adicionar anime
-                            </ButtonAddAnimes>
-                        </BodyWithoutAnimes>
+                        <NoAnimeDiv state={state} />
                     )}
                 </Body>
             </Container>
