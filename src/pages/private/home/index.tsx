@@ -25,6 +25,7 @@ import logo from '../../../assets/logo.png';
 import { Plus } from '@phosphor-icons/react';
 import { Title } from '@components/Title';
 import { AnimesByGenre } from './AnimesByGenre';
+import { TodayAnimes } from './TodayAnimes';
 
 interface IAnimeData {
     isModalOpen: boolean;
@@ -167,13 +168,18 @@ export const Home = () => {
                                     padding: '0 2rem',
                                 }}
                             >
+                                <TodayAnimes
+                                    animeList={animeList.filter((anime) => {
+                                        return dayOfWeek.includes(
+                                            anime.dayOfWeek.toLowerCase()
+                                        );
+                                    })}
+                                />
+
                                 <Title title="Todos os animes" />
 
                                 <AnimesBox>
                                     {animeList?.map((anime: AnimeData) => {
-                                        const today =
-                                            anime.dayOfWeek.toLowerCase();
-
                                         return (
                                             <AnimeBox
                                                 key={anime.id}
@@ -189,18 +195,10 @@ export const Home = () => {
                                                     loading="lazy"
                                                 />
 
-                                                <AnimeTitle
-                                                    $today={dayOfWeek.includes(
-                                                        today
-                                                    )}
-                                                >
+                                                <AnimeTitle>
                                                     {anime.title}
                                                 </AnimeTitle>
-                                                <AnimeSubtitle
-                                                    $today={dayOfWeek.includes(
-                                                        today
-                                                    )}
-                                                >
+                                                <AnimeSubtitle>
                                                     {anime.progress}
                                                 </AnimeSubtitle>
                                             </AnimeBox>
