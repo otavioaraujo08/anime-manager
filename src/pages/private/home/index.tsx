@@ -159,7 +159,7 @@ export const Home = () => {
                 </Header>
 
                 <Body>
-                    {animeList?.length ? (
+                    {animeListOriginal?.length ? (
                         <>
                             <div
                                 style={{
@@ -167,13 +167,16 @@ export const Home = () => {
                                 }}
                             >
                                 <TodayAnimes
-                                    animeList={animeList.filter((anime) => {
-                                        return (
-                                            dayOfWeek.includes(
-                                                anime.dayOfWeek.toLowerCase()
-                                            ) && anime.progress !== 'Completo'
-                                        );
-                                    })}
+                                    animeList={animeListOriginal.filter(
+                                        (anime) => {
+                                            return (
+                                                dayOfWeek.includes(
+                                                    anime.dayOfWeek.toLowerCase()
+                                                ) &&
+                                                anime.progress !== 'Completo'
+                                            );
+                                        }
+                                    )}
                                 />
 
                                 <Title title="Todos os animes" />
@@ -215,7 +218,7 @@ export const Home = () => {
                                 </FloatButton>
                             </div>
 
-                            <AnimesByGenre animeList={animeList} />
+                            <AnimesByGenre animeList={animeListOriginal} />
                         </>
                     ) : (
                         <NoAnimeDiv state={state} />
