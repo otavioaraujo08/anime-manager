@@ -2,6 +2,7 @@ import { IoMdArrowDropleft, IoMdArrowDropright } from 'react-icons/io';
 import { Title } from '@components/Title';
 import { AnimeData } from 'interfaces/animes';
 import styled from 'styled-components';
+import { useState } from 'react';
 
 const TodayAnimesContainer = styled.div`
     width: 96%;
@@ -55,7 +56,20 @@ interface TodayAnimesProps {
 }
 
 export const TodayAnimes = ({ animeList }: TodayAnimesProps) => {
-    console.log(animeList);
+    const [startIndex, setStartIndex] = useState(0);
+
+    const handlePrevClick = () => {
+        if (startIndex > 0) {
+            setStartIndex(startIndex - 5);
+        }
+    };
+
+    const handleNextClick = () => {
+        const maxIndex = Math.min(startIndex + 5, animeList.length - 5);
+        if (startIndex < maxIndex) {
+            setStartIndex(startIndex + 5);
+        }
+    };
 
     return (
         <TodayAnimesContainer>
@@ -68,6 +82,7 @@ export const TodayAnimes = ({ animeList }: TodayAnimesProps) => {
                         style={{
                             cursor: 'pointer',
                         }}
+                        onClick={handlePrevClick}
                     />
                     <IoMdArrowDropright
                         size={25}
@@ -75,21 +90,24 @@ export const TodayAnimes = ({ animeList }: TodayAnimesProps) => {
                         style={{
                             cursor: 'pointer',
                         }}
+                        onClick={handleNextClick}
                     />
                 </HeaderContainer>
             </HeaderContainer>
 
             <BodyContainer>
-                {animeList.map((item) => {
-                    const { photo, title } = item;
+                {animeList
+                    .slice(startIndex, startIndex + 5)
+                    .map((item, index) => {
+                        const { photo, title } = item;
 
-                    return (
-                        <AnimeContainer>
-                            <ImageContent src={photo} alt={title} />
-                            <AnimeTitle>{title}</AnimeTitle>
-                        </AnimeContainer>
-                    );
-                })}
+                        return (
+                            <AnimeContainer key={index}>
+                                <ImageContent src={photo} alt={title} />
+                                <AnimeTitle>{title}</AnimeTitle>
+                            </AnimeContainer>
+                        );
+                    })}
             </BodyContainer>
         </TodayAnimesContainer>
     );
