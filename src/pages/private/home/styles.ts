@@ -201,10 +201,3 @@ export const AnimeSubtitle = styled.h4<{ $today: boolean }>`
         font-size: 0.6rem;
     }
 `;
-
-export const AnimeByGenreBox = styled.div`
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-`;
