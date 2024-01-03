@@ -14,7 +14,6 @@ import {
     BodyWithoutAnimes,
     ButtonAddAnimes,
     LogoImage,
-    AnimeByGenreBox,
 } from './styles';
 import { useState, useEffect } from 'react';
 import { AnimeModal } from './AnimeModal';
@@ -24,7 +23,8 @@ import { EditAnimeModal } from './EditAnimeModal';
 import { FloatButton } from '../../../components/FloatButton';
 import logo from '../../../assets/logo.png';
 import { Plus } from '@phosphor-icons/react';
-import { AnimesByProgress } from './AnimesByProgress';
+import { Title } from '@components/Title';
+import { AnimesByGenre } from './AnimesByGenre';
 
 interface IAnimeData {
     isModalOpen: boolean;
@@ -167,9 +167,7 @@ export const Home = () => {
                                     padding: '0 2rem',
                                 }}
                             >
-                                <GenericSubtitle>
-                                    Todos os animes
-                                </GenericSubtitle>
+                                <Title title="Todos os animes" />
 
                                 <AnimesBox>
                                     {animeList?.map((anime: AnimeData) => {
@@ -219,27 +217,7 @@ export const Home = () => {
                                 </FloatButton>
                             </div>
 
-                            <AnimeByGenreBox>
-                                <AnimesByProgress
-                                    animeList={animeList}
-                                    progress="Não iniciado"
-                                />
-
-                                <AnimesByProgress
-                                    animeList={animeList}
-                                    progress="Em andamento"
-                                />
-
-                                <AnimesByProgress
-                                    animeList={animeList}
-                                    progress="Pausado"
-                                />
-
-                                <AnimesByProgress
-                                    animeList={animeList}
-                                    progress="Completo"
-                                />
-                            </AnimeByGenreBox>
+                            <AnimesByGenre animeList={animeList} />
                         </>
                     ) : (
                         <BodyWithoutAnimes>
