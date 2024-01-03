@@ -1,227 +1,290 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "name": "thalles"
-        },
-        {
-            "name": "otavio",
-            "id": 2
-        },
-        {
-            "name": "08112000XXI",
-            "id": 3
-        }
-    ],
-    "animes": [
-        {
-            "id": 1,
-            "userId": 1,
-            "title": "Naruto",
-            "photo": "https://books.google.com.br/books/publisher/content?id=THsEEAAAQBAJ&hl=pt-BR&pg=PA1&img=1&zoom=3&bul=1&sig=ACfU3U3YI6v95ACL0S9G1QFQsdOTBeRnOA&w=1280",
-            "dayOfWeek": "Domingo",
-            "lastDayWatched": "20/05/2023",
-            "episodesWatched": 24,
-            "progress": "Em andamento",
-            "season": "Inverno"
-        },
-        {
-            "id": 2,
-            "userId": 1,
-            "title": "Bleach",
-            "photo": "https://books.google.com.br/books/publisher/content?id=VteMDwAAQBAJ&hl=pt-BR&pg=PA1&img=1&zoom=3&bul=1&sig=ACfU3U1loNBxI4SYDI3oVz7EgUceM829dg&w=1280",
-            "dayOfWeek": "Sábado",
-            "lastDayWatched": "10/05/2022",
-            "episodesWatched": 35,
-            "progress": "Em andamento",
-            "season": "Inverno"
-        },
-        {
-            "title": "Spy x Family II",
-            "photo": "https://www.intoxianime.com/wp-content/uploads/2023/02/136206l-213x300.jpg",
-            "dayOfWeek": "Sábado",
-            "lastDayWatched": "2023-10-06",
-            "episodesWatched": "2",
-            "progress": "Em andamento",
-            "season": "Outono",
-            "userId": 2,
-            "id": 5
-        },
-        {
-            "title": "Pluto",
-            "photo": "https://www.intoxianime.com/wp-content/uploads/2023/08/134737l-203x300.jpg",
-            "dayOfWeek": "Quinta",
-            "lastDayWatched": "2023-10-26",
-            "episodesWatched": "0",
-            "progress": "Não iniciado",
-            "season": "Outono",
-            "userId": 2,
-            "id": 6
-        },
-        {
-            "title": "Good Night World",
-            "photo": "https://www.intoxianime.com/wp-content/uploads/2023/08/137476l-213x300.jpg",
-            "dayOfWeek": "Quinta",
-            "lastDayWatched": "2023-10-12",
-            "episodesWatched": "0",
-            "progress": "Em andamento",
-            "season": "Outono",
-            "userId": 1,
-            "id": 8
-        },
-        {
-            "title": "Dead Mount Death Play",
-            "photo": "https://books.google.com.br/books/publisher/content?id=-3O4EAAAQBAJ&hl=pt-BR&pg=PP1&img=1&zoom=3&bul=1&sig=ACfU3U1rLAYchoAjcxV37TC8VEYCU--YyA&w=1280",
-            "dayOfWeek": "Segunda",
-            "lastDayWatched": "2023-10-09",
-            "episodesWatched": "0",
-            "progress": "Não iniciado",
-            "season": "Outono",
-            "userId": 2,
-            "id": 9
-        },
-        {
-            "title": "Tokyo revengers 3",
-            "photo": "https://meuanime.io/animes/capas/assistir-tokyo-revengers-3-todos-os-episodios-legendado-hd-meus-animes-online.jpg",
-            "dayOfWeek": "Quarta",
-            "lastDayWatched": "2023-10-11",
-            "episodesWatched": "0",
-            "progress": "Não iniciado",
-            "season": "Outono",
-            "userId": 2,
-            "id": 10
-        },
-        {
-            "title": "Sousou no Frieren",
-            "photo": "https://meuanime.io/animes/capas/assistir-sousou-no-frieren-todos-os-episodios-legendado-hd-meus-animes-online.jpg",
-            "dayOfWeek": "Sexta",
-            "lastDayWatched": "2023-10-13",
-            "episodesWatched": "0",
-            "progress": "Não iniciado",
-            "season": "Outono",
-            "userId": 2,
-            "id": 11
-        },
-        {
-            "title": "Undead Unluck",
-            "photo": "https://meuanime.io/animes/capas/assistir-undead-unluck-todos-os-episodios-legendado-hd-meus-animes-online.jpg",
-            "dayOfWeek": "Sexta",
-            "lastDayWatched": "2023-10-13",
-            "episodesWatched": "2",
-            "progress": "Em andamento",
-            "season": "Outono",
-            "userId": 2,
-            "id": 12
-        },
-        {
-            "title": "Hametsu no Ookoku",
-            "photo": "https://www.intoxianime.com/wp-content/uploads/2023/08/133116l-212x300.jpg",
-            "dayOfWeek": "Sexta",
-            "lastDayWatched": "2023-10-13",
-            "episodesWatched": "0",
-            "progress": "Não iniciado",
-            "season": "Outono",
-            "userId": 2,
-            "id": 13
-        },
-        {
-            "title": "Ragna Crimson",
-            "photo": "https://www.intoxianime.com/wp-content/uploads/2023/08/131318l-212x300.jpg",
-            "dayOfWeek": "Domingo",
-            "lastDayWatched": "2023-10-08",
-            "episodesWatched": "0",
-            "progress": "Não iniciado",
-            "season": "Outono",
-            "userId": 2,
-            "id": 14
-        },
-        {
-            "title": "Goblin Slayer II",
-            "photo": "https://www.intoxianime.com/wp-content/uploads/2023/08/111440l-212x300.jpg",
-            "dayOfWeek": "Quarta",
-            "lastDayWatched": "2023-10-11",
-            "episodesWatched": "3",
-            "progress": "Em andamento",
-            "season": "Outono",
-            "userId": 2,
-            "id": 15
-        },
-        {
-            "title": "Shangri-La Frontier",
-            "photo": "https://books.google.com.br/books/publisher/content?id=XbtIEAAAQBAJ&hl=pt-BR&pg=PP1&img=1&zoom=3&bul=1&sig=ACfU3U3R06zx5Y4CaIIY5PFYle5la5oG1g&w=1280",
-            "dayOfWeek": "Domingo",
-            "lastDayWatched": "2023-10-08",
-            "episodesWatched": "3",
-            "progress": "Em andamento",
-            "season": "Outono",
-            "userId": 2,
-            "id": 16
-        },
-        {
-            "title": "Kanojo pi pi po po po",
-            "photo": "https://www.intoxianime.com/wp-content/uploads/2023/08/136764l-213x300.jpg",
-            "dayOfWeek": "Domingo",
-            "lastDayWatched": "2023-10-22",
-            "episodesWatched": "3",
-            "progress": "Em andamento",
-            "season": "Outono",
-            "userId": 2,
-            "id": 17
-        },
-        {
-            "title": "Migi to Dali",
-            "photo": "https://www.intoxianime.com/wp-content/uploads/2023/08/134817l-213x300.jpg",
-            "dayOfWeek": "Segunda",
-            "lastDayWatched": "2023-10-09",
-            "episodesWatched": "0",
-            "progress": "Não iniciado",
-            "season": "Outono",
-            "userId": 2,
-            "id": 18
-        },
-        {
-            "title": "Overtake",
-            "photo": "https://www.intoxianime.com/wp-content/uploads/2023/08/137607l-212x300.jpg",
-            "dayOfWeek": "Domingo",
-            "lastDayWatched": "2023-10-08",
-            "episodesWatched": "0",
-            "progress": "Não iniciado",
-            "season": "Outono",
-            "userId": 2,
-            "id": 19
-        },
-        {
-            "title": "Jujutsu Kaisen 2",
-            "photo": "https://meuanime.io/animes/capas/assistir-jujutsu-kaisen-2-dublado-todos-os-episodios-hd-meus-animes-online.jpg",
-            "dayOfWeek": "Quinta",
-            "lastDayWatched": "2023-10-12",
-            "episodesWatched": "13",
-            "progress": "Em andamento",
-            "season": "Outono",
-            "userId": 2,
-            "id": 20
-        },
-        {
-            "title": "Good Night World",
-            "photo": "https://img.mangaschan.com/uploads/manga-images/g/good-night-world-end/thumbnail.webp",
-            "dayOfWeek": "Segunda",
-            "lastDayWatched": "2023-10-21",
-            "episodesWatched": "8",
-            "progress": "Em andamento",
-            "season": "Outono",
-            "userId": 2,
-            "id": 21
-        },
-        {
-            "title": "Hunter x Hunter",
-            "photo": "https://books.google.com.br/books/publisher/content?id=pAWhDwAAQBAJ&hl=pt-BR&pg=PA1&img=1&zoom=3&bul=1&sig=ACfU3U2xOZaZvi9vVGKyzD-kBJ2PmzBIRA&w=1280",
-            "dayOfWeek": "Segunda",
-            "lastDayWatched": "2023-10-22",
-            "episodesWatched": "21",
-            "progress": "Em andamento",
-            "season": "Verão",
-            "userId": 2,
-            "id": 22
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "name": "thalles"
+    },
+    {
+      "name": "otavio",
+      "id": 2
+    },
+    {
+      "name": "08112000XXI",
+      "id": 3
+    },
+    {
+      "name": "robert",
+      "id": 4
+    },
+    {
+      "name": "zolfie",
+      "id": 5
+    }
+  ],
+  "animes": [
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "Naruto",
+      "photo": "https://books.google.com.br/books/publisher/content?id=THsEEAAAQBAJ&hl=pt-BR&pg=PA1&img=1&zoom=3&bul=1&sig=ACfU3U3YI6v95ACL0S9G1QFQsdOTBeRnOA&w=1280",
+      "dayOfWeek": "Domingo",
+      "lastDayWatched": "20/05/2023",
+      "episodesWatched": 24,
+      "progress": "Em andamento",
+      "season": "Inverno"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "title": "Bleach",
+      "photo": "https://books.google.com.br/books/publisher/content?id=VteMDwAAQBAJ&hl=pt-BR&pg=PA1&img=1&zoom=3&bul=1&sig=ACfU3U1loNBxI4SYDI3oVz7EgUceM829dg&w=1280",
+      "dayOfWeek": "Sábado",
+      "lastDayWatched": "10/05/2022",
+      "episodesWatched": 35,
+      "progress": "Em andamento",
+      "season": "Inverno"
+    },
+    {
+      "title": "Spy x Family II",
+      "photo": "https://www.intoxianime.com/wp-content/uploads/2023/02/136206l-213x300.jpg",
+      "dayOfWeek": "Sábado",
+      "lastDayWatched": "2023-10-06",
+      "episodesWatched": "2",
+      "progress": "Em andamento",
+      "season": "Outono",
+      "userId": 2,
+      "id": 5
+    },
+    {
+      "title": "Pluto",
+      "photo": "https://www.intoxianime.com/wp-content/uploads/2023/08/134737l-203x300.jpg",
+      "dayOfWeek": "Quinta",
+      "lastDayWatched": "2023-10-26",
+      "episodesWatched": "0",
+      "progress": "Não iniciado",
+      "season": "Outono",
+      "userId": 2,
+      "id": 6
+    },
+    {
+      "title": "Good Night World",
+      "photo": "https://www.intoxianime.com/wp-content/uploads/2023/08/137476l-213x300.jpg",
+      "dayOfWeek": "Quinta",
+      "lastDayWatched": "2023-10-12",
+      "episodesWatched": "0",
+      "progress": "Em andamento",
+      "season": "Outono",
+      "userId": 1,
+      "id": 8
+    },
+    {
+      "title": "Dead Mount Death Play",
+      "photo": "https://books.google.com.br/books/publisher/content?id=-3O4EAAAQBAJ&hl=pt-BR&pg=PP1&img=1&zoom=3&bul=1&sig=ACfU3U1rLAYchoAjcxV37TC8VEYCU--YyA&w=1280",
+      "dayOfWeek": "Segunda",
+      "lastDayWatched": "2023-10-09",
+      "episodesWatched": "0",
+      "progress": "Não iniciado",
+      "season": "Outono",
+      "userId": 2,
+      "id": 9
+    },
+    {
+      "title": "Tokyo revengers 3",
+      "photo": "https://meuanime.io/animes/capas/assistir-tokyo-revengers-3-todos-os-episodios-legendado-hd-meus-animes-online.jpg",
+      "dayOfWeek": "Quarta",
+      "lastDayWatched": "2023-10-11",
+      "episodesWatched": "0",
+      "progress": "Não iniciado",
+      "season": "Outono",
+      "userId": 2,
+      "id": 10
+    },
+    {
+      "title": "Sousou no Frieren",
+      "photo": "https://meuanime.io/animes/capas/assistir-sousou-no-frieren-todos-os-episodios-legendado-hd-meus-animes-online.jpg",
+      "dayOfWeek": "Sexta",
+      "lastDayWatched": "2023-10-13",
+      "episodesWatched": "0",
+      "progress": "Não iniciado",
+      "season": "Outono",
+      "userId": 2,
+      "id": 11
+    },
+    {
+      "title": "Undead Unluck",
+      "photo": "https://meuanime.io/animes/capas/assistir-undead-unluck-todos-os-episodios-legendado-hd-meus-animes-online.jpg",
+      "dayOfWeek": "Sexta",
+      "lastDayWatched": "2023-10-13",
+      "episodesWatched": "2",
+      "progress": "Em andamento",
+      "season": "Outono",
+      "userId": 2,
+      "id": 12
+    },
+    {
+      "title": "Hametsu no Ookoku",
+      "photo": "https://www.intoxianime.com/wp-content/uploads/2023/08/133116l-212x300.jpg",
+      "dayOfWeek": "Sexta",
+      "lastDayWatched": "2023-10-13",
+      "episodesWatched": "0",
+      "progress": "Não iniciado",
+      "season": "Outono",
+      "userId": 2,
+      "id": 13
+    },
+    {
+      "title": "Ragna Crimson",
+      "photo": "https://www.intoxianime.com/wp-content/uploads/2023/08/131318l-212x300.jpg",
+      "dayOfWeek": "Domingo",
+      "lastDayWatched": "2023-10-08",
+      "episodesWatched": "0",
+      "progress": "Pausado",
+      "season": "Outono",
+      "userId": 2,
+      "id": 14
+    },
+    {
+      "title": "Goblin Slayer II",
+      "photo": "https://www.intoxianime.com/wp-content/uploads/2023/08/111440l-212x300.jpg",
+      "dayOfWeek": "Quarta",
+      "lastDayWatched": "2023-10-11",
+      "episodesWatched": "3",
+      "progress": "Em andamento",
+      "season": "Outono",
+      "userId": 2,
+      "id": 15
+    },
+    {
+      "title": "Shangri-La Frontier",
+      "photo": "https://books.google.com.br/books/publisher/content?id=XbtIEAAAQBAJ&hl=pt-BR&pg=PP1&img=1&zoom=3&bul=1&sig=ACfU3U3R06zx5Y4CaIIY5PFYle5la5oG1g&w=1280",
+      "dayOfWeek": "Domingo",
+      "lastDayWatched": "2023-09-24",
+      "episodesWatched": "13",
+      "progress": "Completo",
+      "season": "Outono",
+      "userId": 2,
+      "id": 16
+    },
+    {
+      "title": "Kanojo pi pi po po po",
+      "photo": "https://www.intoxianime.com/wp-content/uploads/2023/08/136764l-213x300.jpg",
+      "dayOfWeek": "Domingo",
+      "lastDayWatched": "2023-10-22",
+      "episodesWatched": "6",
+      "progress": "Em andamento",
+      "season": "Outono",
+      "userId": 2,
+      "id": 17
+    },
+    {
+      "title": "Migi to Dali",
+      "photo": "https://www.intoxianime.com/wp-content/uploads/2023/08/134817l-213x300.jpg",
+      "dayOfWeek": "Segunda",
+      "lastDayWatched": "2023-10-09",
+      "episodesWatched": "0",
+      "progress": "Não iniciado",
+      "season": "Outono",
+      "userId": 2,
+      "id": 18
+    },
+    {
+      "title": "Overtake",
+      "photo": "https://www.intoxianime.com/wp-content/uploads/2023/08/137607l-212x300.jpg",
+      "dayOfWeek": "Domingo",
+      "lastDayWatched": "2023-10-08",
+      "episodesWatched": "0",
+      "progress": "Não iniciado",
+      "season": "Outono",
+      "userId": 2,
+      "id": 19
+    },
+    {
+      "title": "Jujutsu Kaisen 2",
+      "photo": "https://meuanime.io/animes/capas/assistir-jujutsu-kaisen-2-dublado-todos-os-episodios-hd-meus-animes-online.jpg",
+      "dayOfWeek": "Quinta",
+      "lastDayWatched": "2023-11-11",
+      "episodesWatched": "23",
+      "progress": "Completo",
+      "season": "Outono",
+      "userId": 2,
+      "id": 20
+    },
+    {
+      "title": "Good Night World",
+      "photo": "https://img.mangaschan.com/uploads/manga-images/g/good-night-world-end/thumbnail.webp",
+      "dayOfWeek": "Segunda",
+      "lastDayWatched": "2023-10-21",
+      "episodesWatched": "8",
+      "progress": "Pausado",
+      "season": "Outono",
+      "userId": 2,
+      "id": 21
+    },
+    {
+      "title": "Hunter x Hunter",
+      "photo": "https://books.google.com.br/books/publisher/content?id=pAWhDwAAQBAJ&hl=pt-BR&pg=PA1&img=1&zoom=3&bul=1&sig=ACfU3U2xOZaZvi9vVGKyzD-kBJ2PmzBIRA&w=1280",
+      "dayOfWeek": "Segunda",
+      "lastDayWatched": "2023-10-22",
+      "episodesWatched": "107",
+      "progress": "Em andamento",
+      "season": "Verão",
+      "userId": 2,
+      "id": 22
+    },
+    {
+      "title": "Jujutsu Kaisen",
+      "photo": "https://books.google.com.br/books/publisher/content?id=fyqsEAAAQBAJ&hl=pt-BR&pg=PP1&img=1&zoom=3&bul=1&sig=ACfU3U2OOzD-Onl3SkMFvWkmrT_8BNWdpw&w=1280",
+      "dayOfWeek": "Quinta",
+      "lastDayWatched": "2023-11-23",
+      "episodesWatched": "18",
+      "progress": "Em andamento",
+      "season": "Outono",
+      "userId": 4,
+      "id": 23
+    },
+    {
+      "title": "Bocchi the rock",
+      "photo": "https://books.google.com.br/books/publisher/content?id=l5HZEAAAQBAJ&hl=pt-BR&pg=PP1&img=1&zoom=3&bul=1&sig=ACfU3U0encFYY6d7KDbcX24ca9vpNybX9Q&w=1280",
+      "dayOfWeek": "Sábado",
+      "lastDayWatched": "2023-06-13",
+      "episodesWatched": "12",
+      "progress": "Completo",
+      "season": "Primavera",
+      "userId": 4,
+      "id": 24
+    },
+    {
+      "title": "Invencivel",
+      "photo": "https://books.google.com.br/books/publisher/content?id=8DzFDwAAQBAJ&hl=pt-BR&pg=PP1&img=1&zoom=3&bul=1&sig=ACfU3U01fRsAWREmkvtMhGtoVXn57i89zQ&w=1280",
+      "dayOfWeek": "Sábado",
+      "lastDayWatched": "2023-11-24",
+      "episodesWatched": "3",
+      "progress": "Completo",
+      "season": "Outono",
+      "userId": 5,
+      "id": 25
+    },
+    {
+      "title": "Invencivel",
+      "photo": "https://books.google.com.br/books/publisher/content?id=8DzFDwAAQBAJ&hl=pt-BR&pg=PP1&img=1&zoom=3&bul=1&sig=ACfU3U01fRsAWREmkvtMhGtoVXn57i89zQ&w=1280",
+      "dayOfWeek": "Sábado",
+      "lastDayWatched": "2023-11-23",
+      "episodesWatched": "3",
+      "progress": "Pausado",
+      "season": "Inverno",
+      "userId": 4,
+      "id": 26
+    },
+    {
+      "title": "Kage no Jitsuryokusha ni Naritakute!",
+      "photo": "https://www.intoxianime.com/wp-content/uploads/2023/09/F5V1zJMXUAEDj7V.jpg",
+      "dayOfWeek": "Quarta",
+      "lastDayWatched": "2023-12-14",
+      "episodesWatched": "9",
+      "progress": "Em andamento",
+      "season": "Verão",
+      "userId": 2,
+      "id": 27
+    }
+  ]
 }
