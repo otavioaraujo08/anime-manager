@@ -1,4 +1,4 @@
-import { AnimeData } from '../../../../interfaces/animes';
+import { AnimeData } from '../../../../../interfaces/animes';
 import {
     AnimeDiv,
     AnimesDiv,
