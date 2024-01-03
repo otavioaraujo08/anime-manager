@@ -168,8 +168,10 @@ export const Home = () => {
                             >
                                 <TodayAnimes
                                     animeList={animeList.filter((anime) => {
-                                        return dayOfWeek.includes(
-                                            anime.dayOfWeek.toLowerCase()
+                                        return (
+                                            dayOfWeek.includes(
+                                                anime.dayOfWeek.toLowerCase()
+                                            ) && anime.progress !== 'Completo'
                                         );
                                     })}
                                 />
