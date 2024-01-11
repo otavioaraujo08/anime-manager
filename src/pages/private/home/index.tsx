@@ -6,11 +6,8 @@ import {
     Textfield,
     Body,
     AnimesBox,
-    AnimeImage,
-    AnimeBox,
-    AnimeTitle,
-    AnimeSubtitle,
     LogoImage,
+    AnimeTable,
 } from './styles';
 import { useState, useEffect } from 'react';
 import { AnimeModal } from './AnimeModal';
@@ -24,6 +21,7 @@ import { Title } from '@components/Title';
 import { AnimesByGenre } from './AnimesByGenre';
 import { TodayAnimes } from './TodayAnimes';
 import { NoAnimeDiv } from './NoAnimeDiv';
+import { AnimeCard } from './AnimeCard';
 
 interface IAnimeData {
     isModalOpen: boolean;
@@ -161,11 +159,7 @@ export const Home = () => {
                 <Body>
                     {animeListOriginal?.length ? (
                         <>
-                            <div
-                                style={{
-                                    padding: '0 2rem',
-                                }}
-                            >
+                            <AnimeTable>
                                 <TodayAnimes
                                     animeList={animeListOriginal.filter(
                                         (anime) => {
@@ -178,47 +172,33 @@ export const Home = () => {
                                         }
                                     )}
                                 />
+                            </AnimeTable>
 
-                                <Title title="Todos os animes" />
+                            <AnimeTable>
+                                <Title title="Anime ainda em execução" />
 
-                                <AnimesBox>
-                                    {animeList?.map((anime: AnimeData) => {
-                                        return (
-                                            <AnimeBox
-                                                key={anime.id}
-                                                onClick={() =>
-                                                    handleChangeModalViewStatus(
-                                                        anime
-                                                    )
-                                                }
-                                            >
-                                                <AnimeImage
-                                                    src={anime.photo}
-                                                    alt={anime.title}
-                                                    loading="lazy"
-                                                />
-
-                                                <AnimeTitle>
-                                                    {anime.title}
-                                                </AnimeTitle>
-                                                <AnimeSubtitle>
-                                                    {anime.progress}
-                                                </AnimeSubtitle>
-                                            </AnimeBox>
-                                        );
-                                    })}
-                                </AnimesBox>
-
-                                <FloatButton onClick={handleRedirectPage}>
-                                    <Plus
-                                        size={30}
-                                        color="#c4c4c4"
-                                        weight="bold"
-                                    />
-                                </FloatButton>
-                            </div>
+                                <AnimeCard />
+                            </AnimeTable>
 
                             <AnimesByGenre animeList={animeListOriginal} />
+
+                            <AnimeTable>
+                                <AnimesBox>
+                                    <Title title="Todos os animes" />
+
+                                    <AnimeCard
+                                        list={animeList}
+                                        isMap={true}
+                                        handleChangeModalViewStatus={
+                                            handleChangeModalViewStatus
+                                        }
+                                    />
+                                </AnimesBox>
+                            </AnimeTable>
+
+                            <FloatButton onClick={handleRedirectPage}>
+                                <Plus size={30} color="#c4c4c4" weight="bold" />
+                            </FloatButton>
                         </>
                     ) : (
                         <NoAnimeDiv state={state} />
