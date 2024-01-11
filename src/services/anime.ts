@@ -22,5 +22,9 @@ class AnimeService {
     public updateAnimeInfos = async (animeId: number, data: AnimeData) => {
         return this.api.put(`${defaultUrl}/animes/${animeId}`, data);
     };
+
+    public deleteAnime = async (animeId: number) => {
+        return this.api.delete(`${defaultUrl}/animes/${animeId}`);
+    };
 }
 export const animeService = new AnimeService(apiService);
