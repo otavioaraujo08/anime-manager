@@ -109,6 +109,4 @@ export const AnimeCard = ({
               })
             : null;
     }
-
-    return;
 };
