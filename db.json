@@ -292,7 +292,7 @@
             "dayOfWeek": "Sábado",
             "lastDayWatched": "2024-01-06",
             "episodesWatched": "1",
-            "progress": "Não iniciado",
+            "progress": "Em andamento",
             "season": "Inverno",
             "userId": 2,
             "id": 28
@@ -341,7 +341,6 @@
             "userId": 2,
             "id": 32
         },
-
         {
             "title": "Dungeon Meshi",
             "photo": "https://cdn.myanimelist.net/images/anime/1938/140374.jpg",
