@@ -7,7 +7,6 @@ import { useState } from 'react';
 const TodayAnimesContainer = styled.div`
     width: 96%;
     height: 100%;
-    margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
 `;
@@ -33,6 +32,18 @@ const AnimeContainer = styled.div`
 const ImageContent = styled.img`
     width: fit-content;
     height: 18rem;
+
+    @media (max-width: 1200px) {
+        height: 15rem;
+    }
+
+    @media (max-width: 800px) {
+        height: 13rem;
+    }
+
+    @media (max-width: 600px) {
+        height: 11rem;
+    }
 `;
 
 const AnimeTitle = styled.h1`
