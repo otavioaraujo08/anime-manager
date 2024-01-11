@@ -27,6 +27,7 @@
             "@utils/*": ["utils/*"],
             "@services/*": ["services/*"],
             "@interfaces/*": ["interfaces/*"],
+            "@redux/*": ["redux/*"],
             "@pages/*": ["pages/*"]
         }
     },
