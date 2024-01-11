@@ -77,85 +77,13 @@ export const Body = styled.div`
     gap: 3rem;
 `;
 
+export const AnimeTable = styled.div`
+    padding: 0 2rem;
+    margin-bottom: 2rem;
+`;
+
 export const AnimesBox = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 3rem;
-`;
-
-export const AnimeBox = styled.div`
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    cursor: pointer;
-
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-
-    @media (max-width: 800px) {
-        width: 10rem;
-    }
-
-    @media (max-width: 600px) {
-        width: 8rem;
-    }
-`;
-
-export const AnimeImage = styled.img`
-    width: 100%;
-    max-width: 14rem;
-    height: 20rem;
-    border: 2px solid #ffc800;
-    border-radius: 10px;
-
-    @media (max-width: 800px) {
-        height: 15rem;
-    }
-
-    @media (max-width: 600px) {
-        height: 10rem;
-    }
-`;
-
-export const AnimeTitle = styled.h3`
-    max-width: 10rem;
-    text-align: center;
-    word-break: break-word;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #ffffff;
-    letter-spacing: 0.1rem;
-
-    @media (max-width: 800px) {
-        font-size: 1rem;
-    }
-
-    @media (max-width: 600px) {
-        font-size: 0.8rem;
-    }
-`;
-
-export const AnimeSubtitle = styled.h4`
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #ffffff;
-    letter-spacing: 0.1rem;
-    margin-bottom: 1rem;
-
-    @media (max-width: 800px) {
-        font-size: 0.8rem;
-    }
-
-    @media (max-width: 600px) {
-        font-size: 0.6rem;
-    }
 `;
