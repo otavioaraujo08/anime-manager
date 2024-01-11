@@ -56,6 +56,33 @@ export const AnimeModalTitle = styled.h1`
     }
 `;
 
+export const ActionsDiv = styled.div`
+    width: 100%;
+    max-width: 32rem;
+    position: absolute;
+    top: 95%;
+    right: 2%;
+    margin: auto;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+`;
+
+export const DeleteButton = styled.button`
+    width: 25rem;
+    background: #ff1717;
+    border: 2px solid #ffffff;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: 'Asap', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+
+    &:hover {
+        background: #9f0000;
+    }
+`;
+
 export const EditModalDiv = styled.div`
     height: 2.5rem;
     width: 2.5rem;
@@ -63,13 +90,8 @@ export const EditModalDiv = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid #000000;
+    border: 2px solid #9f0000;
     border-radius: 50%;
-    position: absolute;
-    top: 95%;
-    right: 2%;
-    margin: auto;
-    transform: translateY(-50%);
 
     @media (max-width: 790px) {
         top: 100%;
