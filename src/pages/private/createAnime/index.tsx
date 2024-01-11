@@ -1,10 +1,6 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
-import logo from '../../../assets/logo.png';
-import megumin from '../../../assets/megumin.png';
-import { WarningText } from '../../../components/WarningText';
-import { daysOfWeek } from '../../../utils/daysOfWeek';
-import { progress } from '../../../utils/progress';
-import { seasons } from '../../../utils/season';
+import logo from '@assets/logo.png';
+import megumin from '@assets/megumin.png';
 import {
     AnimeImage,
     Body,
@@ -22,9 +18,14 @@ import {
     TextFieldStyled,
     SelectFieldStyled,
 } from './styles';
-import { animeService } from '../../../services/anime';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ArrowUUpLeft } from '@phosphor-icons/react';
+import showPopup from '@utils/showPopup';
+import { WarningText } from '@components/WarningText';
+import { daysOfWeek } from '@utils/daysOfWeek';
+import { progress } from '@utils/progress';
+import { seasons } from '@utils/season';
+import { animeService } from '@services/anime';
 
 type IFormInput = {
     title: string;
@@ -62,7 +63,10 @@ export const CreateAnime = () => {
 
             handleRedirectPage();
         } catch (error: any) {
-            alert(error.message);
+            showPopup({
+                message: 'Ops, ocorreu um erro!',
+                type: 'warning',
+            });
         }
     };
 
