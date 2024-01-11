@@ -1,7 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Modal } from '../../../../components/Modal';
-import { animeService } from '../../../../services/anime';
-import { AnimeData } from '../../../../interfaces/animes';
 import {
     Button,
     Container,
@@ -11,10 +8,14 @@ import {
     TextFieldStyled,
     WarningText,
 } from './styles';
-import { daysOfWeek } from '../../../../utils/daysOfWeek';
-import { progress } from '../../../../utils/progress';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { seasons } from '../../../../utils/season';
+import showPopup from '@utils/showPopup';
+import { AnimeData } from '@interfaces/animes';
+import { animeService } from '@services/anime';
+import { Modal } from '@components/Modal';
+import { daysOfWeek } from '@utils/daysOfWeek';
+import { progress } from '@utils/progress';
+import { seasons } from '@utils/season';
 
 interface EditAnimeModalProps {
     id: number;
@@ -62,7 +63,10 @@ export const EditAnimeModal = ({
             reset();
             handleCloseModal();
         } catch (error: any) {
-            alert(error.message);
+            showPopup({
+                message: 'Ops, ocorreu um erro!',
+                type: 'warning',
+            });
         }
     };
 
@@ -81,7 +85,10 @@ export const EditAnimeModal = ({
 
                 setAnimeData(response[0]);
             } catch (error: any) {
-                alert(error.message);
+                showPopup({
+                    message: 'Ops, ocorreu um erro!',
+                    type: 'warning',
+                });
             }
         };
 
