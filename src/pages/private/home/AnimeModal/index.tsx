@@ -5,15 +5,19 @@ import {
     AnimeModalImage,
     AnimeModalTitle,
     EditModalDiv,
+    ActionsDiv,
+    DeleteButton,
 } from './styles';
-import { Modal } from '../../../../components/Modal';
-import { AnimeData } from '../../../../interfaces/animes';
+import { Modal } from '@components/Modal';
+import { AnimeData } from '@interfaces/animes';
+import { useState } from 'react';
 
 interface AnimeModalProps {
     animeData: AnimeData;
     isOpen: boolean;
     closeModal: () => void;
     openEditModal: (id: number) => void;
+    deleteAnime: (id: number) => void;
 }
 
 export const AnimeModal = ({
@@ -21,6 +25,7 @@ export const AnimeModal = ({
     isOpen,
     closeModal,
     openEditModal,
+    deleteAnime,
 }: AnimeModalProps) => {
     const {
         id,
@@ -32,6 +37,21 @@ export const AnimeModal = ({
         lastDayWatched,
         progress,
     } = animeData;
+    const [isConfirmedDelete, setIsConfirmedDelete] = useState<boolean>(false);
+
+    const handleDeleteAnime = async (id: number) => {
+        try {
+            if (isConfirmedDelete) {
+                setIsConfirmedDelete((state) => !state);
+                deleteAnime(id);
+                return closeModal();
+            }
+
+            return setIsConfirmedDelete((state) => !state);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
         <Modal title="Informações" isOpen={isOpen} closeModal={closeModal}>
@@ -77,9 +97,19 @@ export const AnimeModal = ({
                         Progresso: <strong>{progress || 'Progresso'}</strong>
                     </AnimeModalTitle>
 
-                    <EditModalDiv onClick={() => openEditModal(id || 1)}>
-                        <Pencil size={25} color="#210303" weight="bold" />
-                    </EditModalDiv>
+                    <ActionsDiv>
+                        <DeleteButton
+                            onClick={() => handleDeleteAnime(id || 1090)}
+                        >
+                            {isConfirmedDelete
+                                ? 'Confirmar !'
+                                : 'Apagar Anime !'}
+                        </DeleteButton>
+
+                        <EditModalDiv onClick={() => openEditModal(id || 1)}>
+                            <Pencil size={25} color="#ff1717" weight="bold" />
+                        </EditModalDiv>
+                    </ActionsDiv>
                 </AnimeModalInfos>
             </AnimeModalContainer>
         </Modal>
