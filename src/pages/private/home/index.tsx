@@ -175,9 +175,20 @@ export const Home = () => {
                             </AnimeTable>
 
                             <AnimeTable>
-                                <Title title="Anime ainda em execução" />
+                                <AnimesBox>
+                                    <Title title="Anime ainda em execução" />
 
-                                <AnimeCard />
+                                    <AnimeCard
+                                        list={animeList?.filter(
+                                            (anime) =>
+                                                anime.progress ===
+                                                'Em andamento'
+                                        )}
+                                        handleChangeModalViewStatus={
+                                            handleChangeModalViewStatus
+                                        }
+                                    />
+                                </AnimesBox>
                             </AnimeTable>
 
                             <AnimesByGenre animeList={animeListOriginal} />
@@ -188,7 +199,6 @@ export const Home = () => {
 
                                     <AnimeCard
                                         list={animeList}
-                                        isMap={true}
                                         handleChangeModalViewStatus={
                                             handleChangeModalViewStatus
                                         }
