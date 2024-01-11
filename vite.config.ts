@@ -13,6 +13,7 @@ export default defineConfig({
             '@styles': '/src/styles',
             '@services': '/src/services',
             '@interfaces': '/src/interfaces',
+            '@redux': '/src/redux',
         },
     },
 });
