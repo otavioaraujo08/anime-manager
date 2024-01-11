@@ -119,6 +119,18 @@ export const Home = () => {
         }
     };
 
+    const handleDeleteAnime = async (id: number) => {
+        try {
+            await animeService.deleteAnime(id);
+
+            handleGetAnimesData();
+
+            return console.log('Anime deleted successfully');
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     useEffect(() => {
         handleGetAnimesData();
     }, [state]);
@@ -222,6 +234,7 @@ export const Home = () => {
                     animeData={animeData.animeData}
                     closeModal={handleCloseViewModal}
                     openEditModal={handleOpenEditModal}
+                    deleteAnime={handleDeleteAnime}
                 />
             )}
 
