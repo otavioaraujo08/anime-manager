@@ -28,6 +28,7 @@
             "@services/*": ["services/*"],
             "@interfaces/*": ["interfaces/*"],
             "@redux/*": ["redux/*"],
+            "@assets/*": ["assets/*"],
             "@pages/*": ["pages/*"]
         }
     },
