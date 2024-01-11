@@ -11,6 +11,7 @@ import {
 import { Modal } from '@components/Modal';
 import { AnimeData } from '@interfaces/animes';
 import { useState } from 'react';
+import showPopup from '@utils/showPopup';
 
 interface AnimeModalProps {
     animeData: AnimeData;
@@ -49,7 +50,10 @@ export const AnimeModal = ({
 
             return setIsConfirmedDelete((state) => !state);
         } catch (error) {
-            console.log(error);
+            return showPopup({
+                message: 'Ops, ocorreu um erro!',
+                type: 'warning',
+            });
         }
     };
 
