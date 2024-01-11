@@ -14,6 +14,7 @@ export default defineConfig({
             '@services': '/src/services',
             '@interfaces': '/src/interfaces',
             '@redux': '/src/redux',
+            '@assets': '/src/assets',
         },
     },
 });
