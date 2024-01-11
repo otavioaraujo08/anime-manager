@@ -10,8 +10,9 @@ import {
     GenericSubtitle,
     TextField,
 } from './styles';
-import { userService } from '../../services/user';
-import { setName } from '../../redux/features/nameSlice';
+import showPopup from '@utils/showPopup';
+import { setName } from '@redux/features/nameSlice';
+import { userService } from '@services/user';
 
 export const Login = () => {
     const [username, setUsername] = useState<string>('');
@@ -60,9 +61,15 @@ export const Login = () => {
 
             filteredUser.length
                 ? navigate('/home', { state: filteredUser[0] })
-                : alert('Usuário não encontrado');
+                : showPopup({
+                      message: 'Ops, ocorreu um erro!',
+                      type: 'warning',
+                  });
         } catch (err) {
-            alert(err);
+            showPopup({
+                message: 'Ops, ocorreu um erro!',
+                type: 'warning',
+            });
         }
     };
 
@@ -72,7 +79,10 @@ export const Login = () => {
 
             navigate('/home', { state: response });
         } catch (err) {
-            alert(err);
+            showPopup({
+                message: 'Ops, ocorreu um erro!',
+                type: 'warning',
+            });
         }
     };
 
