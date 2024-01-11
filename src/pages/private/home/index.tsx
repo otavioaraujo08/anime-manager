@@ -11,17 +11,18 @@ import {
 } from './styles';
 import { useState, useEffect } from 'react';
 import { AnimeModal } from './AnimeModal';
-import { animeService } from '../../../services/anime';
-import { AnimeData } from '../../../interfaces/animes';
-import { EditAnimeModal } from './EditAnimeModal';
-import { FloatButton } from '../../../components/FloatButton';
-import logo from '../../../assets/logo.png';
 import { Plus } from '@phosphor-icons/react';
 import { Title } from '@components/Title';
-import { AnimesByGenre } from './AnimesByGenre';
+import showPopup from '@utils/showPopup';
+import { AnimeData } from '@interfaces/animes';
+import { animeService } from '@services/anime';
+import logo from '@assets/logo.png';
 import { TodayAnimes } from './TodayAnimes';
-import { NoAnimeDiv } from './NoAnimeDiv';
 import { AnimeCard } from './AnimeCard';
+import { AnimesByGenre } from './AnimesByGenre';
+import { FloatButton } from '@components/FloatButton';
+import { NoAnimeDiv } from './NoAnimeDiv';
+import { EditAnimeModal } from './EditAnimeModal';
 
 interface IAnimeData {
     isModalOpen: boolean;
@@ -113,9 +114,12 @@ export const Home = () => {
                 userId: state.id,
             });
 
-            setAnimeListOriginal(response);
+            return setAnimeListOriginal(response);
         } catch (error: any) {
-            alert(error.message);
+            return showPopup({
+                message: 'Ops, ocorreu algum erro!',
+                type: 'warning',
+            });
         }
     };
 
@@ -125,9 +129,15 @@ export const Home = () => {
 
             handleGetAnimesData();
 
-            return console.log('Anime deleted successfully');
+            return showPopup({
+                message: 'Anime deletado com sucesso!',
+                type: 'success',
+            });
         } catch (error) {
-            console.log(error);
+            return showPopup({
+                message: 'Ops, ocorreu um erro!',
+                type: 'warning',
+            });
         }
     };
 
