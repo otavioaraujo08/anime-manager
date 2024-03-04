@@ -1,5 +1,6 @@
 import { Popup } from '@components/Popup';
 import { ShowPopupProps } from '@interfaces/popup';
+import { createRoot } from 'react-dom/client';
 import ReactDOM from 'react-dom';
 
 export default function showPopup({ message, type }: ShowPopupProps) {
@@ -11,8 +12,6 @@ export default function showPopup({ message, type }: ShowPopupProps) {
         document.body.removeChild(container);
     };
 
-    ReactDOM.render(
-        <Popup message={message} type={type} onClose={closePopup} />,
-        container
-    );
+    const root = createRoot(container);
+    root.render(<Popup message={message} type={type} onClose={closePopup} />);
 }
