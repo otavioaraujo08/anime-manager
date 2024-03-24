@@ -21,6 +21,7 @@ const BodyContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    margin-top: 2rem;
 `;
 
 const AnimeContainer = styled.div`
@@ -53,6 +54,28 @@ const AnimeTitle = styled.h1`
     max-width: 13rem;
     font-family: 'Poppins', sans-serif;
     font-size: 1.1rem;
+    font-weight: 500;
+    color: #fca311;
+    letter-spacing: 0.1rem;
+
+    @media (max-width: 800px) {
+        font-size: 1rem;
+    }
+`;
+
+const WarningDiv = styled.div`
+    margin-top: 0.5rem;
+    height: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+`;
+
+const WarningText = styled.h1`
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
     font-weight: 500;
     color: #fca311;
     letter-spacing: 0.1rem;
@@ -107,18 +130,24 @@ export const TodayAnimes = ({ animeList }: TodayAnimesProps) => {
             </HeaderContainer>
 
             <BodyContainer>
-                {animeList
-                    .slice(startIndex, startIndex + 5)
-                    .map((item, index) => {
-                        const { photo, title } = item;
+                {animeList.length ? (
+                    animeList
+                        .slice(startIndex, startIndex + 5)
+                        .map((item, index) => {
+                            const { photo, title } = item;
 
-                        return (
-                            <AnimeContainer key={index}>
-                                <ImageContent src={photo} alt={title} />
-                                <AnimeTitle>{title}</AnimeTitle>
-                            </AnimeContainer>
-                        );
-                    })}
+                            return (
+                                <AnimeContainer key={index}>
+                                    <ImageContent src={photo} alt={title} />
+                                    <AnimeTitle>{title}</AnimeTitle>
+                                </AnimeContainer>
+                            );
+                        })
+                ) : (
+                    <WarningDiv>
+                        <WarningText>Sem exibições para hoje!</WarningText>
+                    </WarningDiv>
+                )}
             </BodyContainer>
         </TodayAnimesContainer>
     );
