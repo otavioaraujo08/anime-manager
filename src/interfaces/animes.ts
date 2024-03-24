@@ -1,5 +1,5 @@
 export interface AnimeData {
-    id?: number;
+    _id?: string;
     userId?: number;
     title: string;
     photo: string;
