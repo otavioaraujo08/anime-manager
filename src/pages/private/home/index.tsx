@@ -33,7 +33,7 @@ export const Home = () => {
     const [animeData, setAnimeData] = useState<IAnimeData>({
         isModalOpen: false,
         animeData: {
-            id: 1,
+            _id: 'abcdefghij',
             title: '',
             dayOfWeek: '',
             episodesWatched: 1,
@@ -46,7 +46,7 @@ export const Home = () => {
     });
     const [modalEditInfo, setModalEditInfo] = useState({
         isModalOpen: false,
-        id: 0,
+        id: 'abced',
     });
     const [animeListOriginal, setAnimeListOriginal] = useState<AnimeData[]>();
     const [animeList, setAnimeList] = useState<AnimeData[]>();
@@ -73,7 +73,7 @@ export const Home = () => {
         setAnimeData({
             isModalOpen: false,
             animeData: {
-                id: 1,
+                _id: 'abcdefghijklmnopqrstuvwxyz',
                 title: '',
                 dayOfWeek: '',
                 episodesWatched: 1,
@@ -86,7 +86,7 @@ export const Home = () => {
         });
     };
 
-    const handleOpenEditModal = (id: number) => {
+    const handleOpenEditModal = (id: string) => {
         setModalEditInfo({
             isModalOpen: true,
             id,
@@ -97,7 +97,7 @@ export const Home = () => {
         handleCloseViewModal();
 
         setModalEditInfo({
-            id: 0,
+            id: 'abcd',
             isModalOpen: false,
         });
     };
@@ -111,19 +111,19 @@ export const Home = () => {
     const handleGetAnimesData = async () => {
         try {
             const response = await animeService.getAnimesInfo({
-                userId: state.id,
+                userId: state._id,
             });
 
             return setAnimeListOriginal(response);
         } catch (error: any) {
             return showPopup({
-                message: 'Ops, ocorreu algum erro!',
+                message: 'Nenhum anime encontrado !',
                 type: 'warning',
             });
         }
     };
 
-    const handleDeleteAnime = async (id: number) => {
+    const handleDeleteAnime = async (id: string) => {
         try {
             await animeService.deleteAnime(id);
 
@@ -135,7 +135,7 @@ export const Home = () => {
             });
         } catch (error) {
             return showPopup({
-                message: 'Ops, ocorreu um erro!',
+                message: 'Erro ao deletar anime!',
                 type: 'warning',
             });
         }
@@ -252,7 +252,7 @@ export const Home = () => {
                 isOpen={modalEditInfo.isModalOpen}
                 closeModal={handleCloseEditModal}
                 id={modalEditInfo.id}
-                userId={state.id}
+                userId={state._id}
                 reload={handleGetAnimesData}
             />
         </>
