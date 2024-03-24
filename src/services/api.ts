@@ -85,5 +85,5 @@ export class ApiService {
     };
 }
 
-export const defaultUrl = 'http://localhost:3000';
+export const defaultUrl = 'http://[::1]:3000';
 export const api = new ApiService();
