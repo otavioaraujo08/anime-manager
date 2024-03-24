@@ -20,7 +20,7 @@ const PopupDiv = styled.div<{ $success: boolean }>`
 
 const Message = styled.h1`
     font-family: 'Poppins', sans-serif;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     font-weight: 500;
     color: #e5e5e5;
     letter-spacing: 0.1rem;
