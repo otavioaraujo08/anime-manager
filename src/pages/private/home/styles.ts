@@ -74,7 +74,7 @@ export const Body = styled.div`
     display: flex;
     flex-direction: column;
     text-align: center;
-    gap: 3rem;
+    gap: 1.5rem;
 `;
 
 export const AnimeTable = styled.div`
