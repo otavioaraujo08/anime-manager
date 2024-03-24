@@ -17,8 +17,8 @@ interface AnimeModalProps {
     animeData: AnimeData;
     isOpen: boolean;
     closeModal: () => void;
-    openEditModal: (id: number) => void;
-    deleteAnime: (id: number) => void;
+    openEditModal: (id: string) => void;
+    deleteAnime: (id: string) => void;
 }
 
 export const AnimeModal = ({
@@ -29,7 +29,7 @@ export const AnimeModal = ({
     deleteAnime,
 }: AnimeModalProps) => {
     const {
-        id,
+        _id,
         photo,
         title,
         season,
@@ -40,7 +40,7 @@ export const AnimeModal = ({
     } = animeData;
     const [isConfirmedDelete, setIsConfirmedDelete] = useState<boolean>(false);
 
-    const handleDeleteAnime = async (id: number) => {
+    const handleDeleteAnime = async (id: string) => {
         try {
             if (isConfirmedDelete) {
                 setIsConfirmedDelete((state) => !state);
@@ -51,7 +51,7 @@ export const AnimeModal = ({
             return setIsConfirmedDelete((state) => !state);
         } catch (error) {
             return showPopup({
-                message: 'Ops, ocorreu um erro!',
+                message: 'Erro ao confirmar apagar!',
                 type: 'warning',
             });
         }
@@ -103,14 +103,14 @@ export const AnimeModal = ({
 
                     <ActionsDiv>
                         <DeleteButton
-                            onClick={() => handleDeleteAnime(id || 1090)}
+                            onClick={() => handleDeleteAnime(_id || '')}
                         >
                             {isConfirmedDelete
                                 ? 'Confirmar !'
                                 : 'Apagar Anime !'}
                         </DeleteButton>
 
-                        <EditModalDiv onClick={() => openEditModal(id || 1)}>
+                        <EditModalDiv onClick={() => openEditModal(_id || '')}>
                             <Pencil size={25} color="#ff1717" weight="bold" />
                         </EditModalDiv>
                     </ActionsDiv>
