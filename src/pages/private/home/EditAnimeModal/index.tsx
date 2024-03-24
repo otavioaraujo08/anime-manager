@@ -18,7 +18,7 @@ import { progress } from '@utils/progress';
 import { seasons } from '@utils/season';
 
 interface EditAnimeModalProps {
-    id: number;
+    id: string;
     userId: number;
     isOpen: boolean;
     closeModal: () => void;
@@ -54,7 +54,7 @@ export const EditAnimeModal = ({
         data: IFormInput
     ) => {
         try {
-            await animeService.updateAnimeInfos(animeData?.id || 1, {
+            await animeService.updateAnimeInfos(animeData?._id || 'abcd', {
                 ...data,
                 userId,
             });
@@ -64,7 +64,7 @@ export const EditAnimeModal = ({
             handleCloseModal();
         } catch (error: any) {
             showPopup({
-                message: 'Ops, ocorreu um erro!',
+                message: 'Erro ao atualizar dados do anime!',
                 type: 'warning',
             });
         }
@@ -77,7 +77,7 @@ export const EditAnimeModal = ({
     };
 
     useEffect(() => {
-        const handleGetAnimeData = async (id: number) => {
+        const handleGetAnimeData = async (id: string) => {
             try {
                 const response = await animeService.getAnimesInfo({
                     id: id,
@@ -86,13 +86,13 @@ export const EditAnimeModal = ({
                 setAnimeData(response[0]);
             } catch (error: any) {
                 showPopup({
-                    message: 'Ops, ocorreu um erro!',
+                    message: 'Erro ao trazer animes do usuário!',
                     type: 'warning',
                 });
             }
         };
 
-        if (id != 0) {
+        if (id.length > 0) {
             handleGetAnimeData(id);
         }
     }, [id]);
