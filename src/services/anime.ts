@@ -2,8 +2,8 @@ import { AnimeData } from '../interfaces/animes';
 import { api as apiService, ApiService, defaultUrl } from './api';
 
 interface getAnimesInfoProps {
-    userId?: number;
-    id?: number;
+    userId?: string;
+    id?: string;
 }
 
 class AnimeService {
@@ -12,19 +12,19 @@ class AnimeService {
     public getAnimesInfo = async (
         params: getAnimesInfoProps
     ): Promise<AnimeData[]> => {
-        return this.api.get(`${defaultUrl}/animes`, { params });
+        return this.api.get(`${defaultUrl}/anime`, { params });
     };
 
     public createAnimeInfos = async (data: AnimeData) => {
-        return this.api.post(`${defaultUrl}/animes`, data);
+        return this.api.post(`${defaultUrl}/anime`, data);
     };
 
-    public updateAnimeInfos = async (animeId: number, data: AnimeData) => {
-        return this.api.put(`${defaultUrl}/animes/${animeId}`, data);
+    public updateAnimeInfos = async (animeId: string, data: AnimeData) => {
+        return this.api.put(`${defaultUrl}/anime/${animeId}`, data);
     };
 
-    public deleteAnime = async (animeId: number) => {
-        return this.api.delete(`${defaultUrl}/animes/${animeId}`);
+    public deleteAnime = async (animeId: string) => {
+        return this.api.delete(`${defaultUrl}/anime/${animeId}`);
     };
 }
 export const animeService = new AnimeService(apiService);
