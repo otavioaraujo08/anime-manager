@@ -58,13 +58,13 @@ export const CreateAnime = () => {
         try {
             await animeService.createAnimeInfos({
                 ...data,
-                userId: state.id,
+                userId: state._id,
             });
 
             handleRedirectPage();
         } catch (error: any) {
             showPopup({
-                message: 'Ops, ocorreu um erro!',
+                message: 'Erro ao criar anime!',
                 type: 'warning',
             });
         }
