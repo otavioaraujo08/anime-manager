@@ -1,4 +1,9 @@
 export interface UsersInfo {
     id: number;
-    name: string;
+    nome: string;
+}
+
+export interface createUserInfoResponse {
+    id: string;
+    nome: string;
 }
