@@ -56,18 +56,18 @@ export const Login = () => {
             const response = await userService.getUsersInfo();
 
             const filteredUser = response.filter(
-                (user) => user.name === username
+                (user) => user.nome === username
             );
 
             filteredUser.length
                 ? navigate('/home', { state: filteredUser[0] })
                 : showPopup({
-                      message: 'Ops, ocorreu um erro!',
+                      message: 'Ops, usuário nao encontrado!',
                       type: 'warning',
                   });
         } catch (err) {
             showPopup({
-                message: 'Ops, ocorreu um erro!',
+                message: 'Error ao buscar usuários!',
                 type: 'warning',
             });
         }
@@ -80,7 +80,7 @@ export const Login = () => {
             navigate('/home', { state: response });
         } catch (err) {
             showPopup({
-                message: 'Ops, ocorreu um erro!',
+                message: 'Erro ao criar usuário!',
                 type: 'warning',
             });
         }
