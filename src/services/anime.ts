@@ -15,6 +15,10 @@ class AnimeService {
         return this.api.get(`${defaultUrl}/anime`, { params });
     };
 
+    public getAnimeInfo = async (id: string): Promise<AnimeData> => {
+        return this.api.get(`${defaultUrl}/anime/${id}`);
+    };
+
     public createAnimeInfos = async (data: AnimeData) => {
         return this.api.post(`${defaultUrl}/anime`, data);
     };
