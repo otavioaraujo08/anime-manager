@@ -33,7 +33,7 @@ export const Home = () => {
     const [animeData, setAnimeData] = useState<IAnimeData>({
         isModalOpen: false,
         animeData: {
-            _id: 'abcdefghij',
+            _id: 'abcd',
             title: '',
             dayOfWeek: '',
             episodesWatched: 1,
@@ -46,7 +46,7 @@ export const Home = () => {
     });
     const [modalEditInfo, setModalEditInfo] = useState({
         isModalOpen: false,
-        id: 'abced',
+        id: 'abcd',
     });
     const [animeListOriginal, setAnimeListOriginal] = useState<AnimeData[]>();
     const [animeList, setAnimeList] = useState<AnimeData[]>();
@@ -73,7 +73,7 @@ export const Home = () => {
         setAnimeData({
             isModalOpen: false,
             animeData: {
-                _id: 'abcdefghijklmnopqrstuvwxyz',
+                _id: 'abcd',
                 title: '',
                 dayOfWeek: '',
                 episodesWatched: 1,
