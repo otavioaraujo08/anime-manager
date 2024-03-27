@@ -79,11 +79,9 @@ export const EditAnimeModal = ({
     useEffect(() => {
         const handleGetAnimeData = async (id: string) => {
             try {
-                const response = await animeService.getAnimesInfo({
-                    id: id,
-                });
+                const response = await animeService.getAnimeInfo(id);
 
-                setAnimeData(response[0]);
+                setAnimeData(response);
             } catch (error: any) {
                 showPopup({
                     message: 'Erro ao trazer animes do usuário!',
@@ -92,7 +90,7 @@ export const EditAnimeModal = ({
             }
         };
 
-        if (id.length > 0) {
+        if (id !== 'abcd') {
             handleGetAnimeData(id);
         }
     }, [id]);
