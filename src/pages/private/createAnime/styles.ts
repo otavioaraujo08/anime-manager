@@ -126,7 +126,7 @@ export const Form = styled.form`
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    gap: 13.5rem;
+    gap: 10.5rem;
 
     @media (max-width: 1600px) {
         gap: 6.5rem;
