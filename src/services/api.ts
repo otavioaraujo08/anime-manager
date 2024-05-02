@@ -85,5 +85,5 @@ export class ApiService {
     };
 }
 
-export const defaultUrl = 'http://[::1]:3000';
+export const defaultUrl = 'https://anime-manager-api.onrender.com';
 export const api = new ApiService();
