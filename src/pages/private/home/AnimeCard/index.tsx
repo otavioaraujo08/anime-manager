@@ -93,7 +93,7 @@ export const AnimeCard = ({
             ? list?.map((anime: AnimeData) => {
                   return (
                       <AnimeBox
-                          key={anime.id}
+                          key={anime._id}
                           onClick={() => handleChangeModalViewStatus(anime)}
                       >
                           <AnimeImage
