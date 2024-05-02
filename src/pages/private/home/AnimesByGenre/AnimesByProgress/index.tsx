@@ -35,7 +35,7 @@ export const AnimesByProgress = ({
 
             <AnimesDiv>
                 {filteredAnimeList.map((anime) => (
-                    <AnimeDiv key={anime.id}>
+                    <AnimeDiv key={anime._id}>
                         <AnimeImageDiv>
                             <AnimeImage alt={anime.title} src={anime.photo} />
                         </AnimeImageDiv>
