@@ -60,7 +60,7 @@ export const Login = () => {
             );
 
             filteredUser.length
-                ? navigate('/home', { state: filteredUser[0] })
+                ? navigate('/animes', { state: filteredUser[0] })
                 : showPopup({
                       message: 'Ops, usuário nao encontrado!',
                       type: 'warning',
@@ -77,7 +77,7 @@ export const Login = () => {
         try {
             const response = await userService.postUserInfo(username);
 
-            navigate('/home', { state: response });
+            navigate('/animes', { state: response });
         } catch (err) {
             showPopup({
                 message: 'Erro ao criar usuário!',
