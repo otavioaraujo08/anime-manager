@@ -8,6 +8,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import { Login } from './pages/login';
 import { Home } from './pages/private/home';
 import { CreateAnime } from './pages/private/createAnime';
+import { AnimePage } from '@pages/private/animePage';
 
 import './index.css';
 
@@ -17,8 +18,12 @@ const router = createBrowserRouter([
         element: <Login />,
     },
     {
-        path: '/home',
+        path: '/animes',
         element: <Home />,
+    },
+    {
+        path: '/animes/anime/:animeId',
+        element: <AnimePage />,
     },
     {
         path: '/create-anime-info',
