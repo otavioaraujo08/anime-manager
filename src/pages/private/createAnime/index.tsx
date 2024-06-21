@@ -47,7 +47,7 @@ export const CreateAnime = () => {
     const navigate = useNavigate();
 
     const handleRedirectPage = () => {
-        navigate('/home', {
+        navigate('/animes', {
             state: state,
         });
     };
