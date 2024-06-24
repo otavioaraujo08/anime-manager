@@ -61,6 +61,10 @@ export const BoxContentImage = styled.div`
     background-position: center;
     background-size: cover;
     color: #fefefe;
+
+    @media (max-width: 440px) {
+        display: none;
+    }
 `;
 
 export const AnimeImage = styled.img`
