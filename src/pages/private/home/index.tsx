@@ -10,7 +10,6 @@ import {
     AnimeTable,
 } from './styles';
 import { useState, useEffect } from 'react';
-import { AnimeModal } from './AnimeModal';
 import { Plus } from '@phosphor-icons/react';
 import { Title } from '@components/Title';
 import showPopup from '@utils/showPopup';
@@ -22,32 +21,8 @@ import { AnimeCard } from './AnimeCard';
 import { AnimesByGenre } from './AnimesByGenre';
 import { FloatButton } from '@components/FloatButton';
 import { NoAnimeDiv } from './NoAnimeDiv';
-import { EditAnimeModal } from './EditAnimeModal';
-
-interface IAnimeData {
-    isModalOpen: boolean;
-    animeData: AnimeData;
-}
 
 export const Home = () => {
-    const [animeData, setAnimeData] = useState<IAnimeData>({
-        isModalOpen: false,
-        animeData: {
-            _id: 'abcd',
-            title: '',
-            dayOfWeek: '',
-            episodesWatched: 1,
-            lastDayWatched: '',
-            photo: '',
-            progress: '',
-            season: '',
-            userId: 1,
-        },
-    });
-    const [modalEditInfo, setModalEditInfo] = useState({
-        isModalOpen: false,
-        id: 'abcd',
-    });
     const [animeListOriginal, setAnimeListOriginal] = useState<AnimeData[]>();
     const [animeList, setAnimeList] = useState<AnimeData[]>();
     const [searchFilter, setSearchFilter] = useState<string>('');
@@ -60,46 +35,6 @@ export const Home = () => {
 
     const handleChangeFilter = (animeName: string) => {
         return setSearchFilter(animeName);
-    };
-
-    const handleChangeModalViewStatus = (animeInfos: AnimeData) => {
-        setAnimeData({
-            isModalOpen: !animeData.isModalOpen,
-            animeData: animeInfos,
-        });
-    };
-
-    const handleCloseViewModal = () => {
-        setAnimeData({
-            isModalOpen: false,
-            animeData: {
-                _id: 'abcd',
-                title: '',
-                dayOfWeek: '',
-                episodesWatched: 1,
-                lastDayWatched: '',
-                photo: '',
-                progress: '',
-                season: '',
-                userId: 1,
-            },
-        });
-    };
-
-    const handleOpenEditModal = (id: string) => {
-        setModalEditInfo({
-            isModalOpen: true,
-            id,
-        });
-    };
-
-    const handleCloseEditModal = () => {
-        handleCloseViewModal();
-
-        setModalEditInfo({
-            id: 'abcd',
-            isModalOpen: false,
-        });
     };
 
     const handleRedirectPage = () => {
@@ -118,24 +53,6 @@ export const Home = () => {
         } catch (error: any) {
             return showPopup({
                 message: 'Nenhum anime encontrado !',
-                type: 'warning',
-            });
-        }
-    };
-
-    const handleDeleteAnime = async (id: string) => {
-        try {
-            await animeService.deleteAnime(id);
-
-            handleGetAnimesData();
-
-            return showPopup({
-                message: 'Anime deletado com sucesso!',
-                type: 'success',
-            });
-        } catch (error) {
-            return showPopup({
-                message: 'Erro ao deletar anime!',
                 type: 'warning',
             });
         }
@@ -206,9 +123,6 @@ export const Home = () => {
                                                 anime.progress ===
                                                 'Em andamento'
                                         )}
-                                        handleChangeModalViewStatus={
-                                            handleChangeModalViewStatus
-                                        }
                                     />
                                 </AnimesBox>
                             </AnimeTable>
@@ -219,12 +133,7 @@ export const Home = () => {
                                 <AnimesBox>
                                     <Title title="Todos os animes" />
 
-                                    <AnimeCard
-                                        list={animeList}
-                                        handleChangeModalViewStatus={
-                                            handleChangeModalViewStatus
-                                        }
-                                    />
+                                    <AnimeCard list={animeList} />
                                 </AnimesBox>
                             </AnimeTable>
 
@@ -237,24 +146,6 @@ export const Home = () => {
                     )}
                 </Body>
             </Container>
-
-            {!modalEditInfo.isModalOpen && (
-                <AnimeModal
-                    isOpen={animeData.isModalOpen}
-                    animeData={animeData.animeData}
-                    closeModal={handleCloseViewModal}
-                    openEditModal={handleOpenEditModal}
-                    deleteAnime={handleDeleteAnime}
-                />
-            )}
-
-            <EditAnimeModal
-                isOpen={modalEditInfo.isModalOpen}
-                closeModal={handleCloseEditModal}
-                id={modalEditInfo.id}
-                userId={state._id}
-                reload={handleGetAnimesData}
-            />
         </>
     );
 };
