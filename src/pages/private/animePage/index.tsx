@@ -22,14 +22,13 @@ export const AnimePage = () => {
         episodesWatched,
         progress,
         season,
+        lastDayWatched,
     }: AnimeData = state;
     const [isEdit, setIsEdit] = useState<boolean>(false);
 
     const handleEditAnime = () => {
         setIsEdit((state) => !state);
     };
-
-    console.log(state);
 
     return (
         <AnimeBoxContent>
@@ -44,7 +43,15 @@ export const AnimePage = () => {
                 </AnimeBoxHeader>
                 <AnimeInfos>
                     {isEdit ? (
-                        <AnimeEdit />
+                        <AnimeEdit
+                            title={title}
+                            dayOfWeek={dayOfWeek}
+                            episodesWatched={episodesWatched}
+                            lastDayWatched={lastDayWatched}
+                            photo={photo}
+                            progress={progress}
+                            season={season}
+                        />
                     ) : (
                         <AnimeView
                             title={title}
