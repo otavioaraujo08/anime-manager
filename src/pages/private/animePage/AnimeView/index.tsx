@@ -1,3 +1,4 @@
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const AnimeInfos = styled.div`
@@ -59,6 +60,11 @@ const ReturnButton = styled.button`
     color: #ffffff;
     border-radius: 5%;
     border: 1px solid #ffffff;
+    cursor: pointer;
+
+    &:hover {
+        background: #9d893e;
+    }
 
     @media (max-width: 900px) {
         height: 3rem;
@@ -92,6 +98,15 @@ export const AnimeView = ({
     progress,
     season,
 }: IAnimeView) => {
+    const { state } = useLocation();
+    const navigate = useNavigate();
+
+    const handleRedirectPage = () => {
+        navigate('/animes', {
+            state: state,
+        });
+    };
+
     return (
         <AnimeInfos>
             <AnimeTitle>
@@ -111,7 +126,7 @@ export const AnimeView = ({
                 Temporada: <AnimeInfosText>{season}</AnimeInfosText>
             </AnimeTitle>
 
-            <ReturnButton>Retornar</ReturnButton>
+            <ReturnButton onClick={handleRedirectPage}>Retornar</ReturnButton>
         </AnimeInfos>
     );
 };
