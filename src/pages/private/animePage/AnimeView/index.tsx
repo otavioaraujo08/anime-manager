@@ -1,3 +1,6 @@
+import { animeService } from '@services/anime';
+import showPopup from '@utils/showPopup';
+import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -51,35 +54,47 @@ const AnimeInfosText = styled.strong`
     }
 `;
 
-const ReturnButton = styled.button`
+const ButtonsDiv = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    max-width: 40rem;
+`;
+
+const Button = styled.button<{ $background: string }>`
     height: 3rem;
-    width: 18rem;
+    width: 15rem;
     font-family: 'Raleway', sans-serif;
     font-size: 1rem;
-    background: #ffc800;
+    background: ${(props) => props.$background};
     color: #ffffff;
     border-radius: 5%;
     border: 1px solid #ffffff;
     cursor: pointer;
 
     &:hover {
-        background: #9d893e;
+        background: #21201c;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1000px) {
         height: 3rem;
-        width: 13rem;
+        width: 10rem;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
         height: 2rem;
-        width: 10rem;
+        width: 8rem;
         font-size: 0.7rem;
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 550px) {
         height: 2rem;
         width: 7rem;
+    }
+
+    @media (max-width: 300px) {
+        height: 2rem;
+        width: 6rem;
     }
 `;
 
@@ -98,6 +113,7 @@ export const AnimeView = ({
     progress,
     season,
 }: IAnimeView) => {
+    const [isConfirmedDelete, setIsConfirmedDelete] = useState<boolean>(false);
     const { state } = useLocation();
     const navigate = useNavigate();
 
@@ -105,6 +121,28 @@ export const AnimeView = ({
         navigate('/animes', {
             state: state,
         });
+    };
+
+    const handleDeleteAnime = async () => {
+        try {
+            if (isConfirmedDelete) {
+                await animeService.deleteAnime(state._id);
+
+                showPopup({
+                    message: 'Anime deletado com sucesso!',
+                    type: 'success',
+                });
+
+                return handleRedirectPage();
+            }
+
+            return setIsConfirmedDelete((state) => !state);
+        } catch (error) {
+            return showPopup({
+                message: 'Erro ao deletar anime!',
+                type: 'warning',
+            });
+        }
     };
 
     return (
@@ -126,7 +164,15 @@ export const AnimeView = ({
                 Temporada: <AnimeInfosText>{season}</AnimeInfosText>
             </AnimeTitle>
 
-            <ReturnButton onClick={handleRedirectPage}>Retornar</ReturnButton>
+            <ButtonsDiv>
+                <Button $background="#ff0c0c" onClick={handleDeleteAnime}>
+                    {isConfirmedDelete ? 'Confirmar !' : 'Apagar Anime !'}
+                </Button>
+
+                <Button $background="#ffc800" onClick={handleRedirectPage}>
+                    Retornar
+                </Button>
+            </ButtonsDiv>
         </AnimeInfos>
     );
 };
