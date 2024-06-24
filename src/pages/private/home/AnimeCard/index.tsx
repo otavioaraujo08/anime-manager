@@ -1,4 +1,5 @@
 import { AnimeData } from 'interfaces/animes';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const AnimeBox = styled.div`
@@ -81,20 +82,21 @@ export const AnimeSubtitle = styled.h4`
 
 interface AnimeCardProps {
     list: AnimeData[] | undefined;
-    handleChangeModalViewStatus: (anime: AnimeData) => void;
 }
 
-export const AnimeCard = ({
-    list,
-    handleChangeModalViewStatus,
-}: AnimeCardProps) => {
+export const AnimeCard = ({ list }: AnimeCardProps) => {
+    const navigate = useNavigate();
+    const handleRedirectToAnimePage = (anime: AnimeData) => {
+        navigate(`/animes/anime/${anime._id}`, { state: anime });
+    };
+
     if (list) {
         return list.length > 0
             ? list?.map((anime: AnimeData) => {
                   return (
                       <AnimeBox
+                          onClick={() => handleRedirectToAnimePage(anime)}
                           key={anime._id}
-                          onClick={() => handleChangeModalViewStatus(anime)}
                       >
                           <AnimeImage
                               src={anime.photo}
