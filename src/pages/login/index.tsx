@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -21,6 +21,7 @@ export const Login = () => {
         register: false,
         userChoosen: false,
     });
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const dispatch = useDispatch();
     const userWantLogin = isLogin.login;
     const navigate = useNavigate();
@@ -38,11 +39,16 @@ export const Login = () => {
             });
         }
 
+        dispatch(setName(''));
         setIsLogin({
             login: false,
             register: true,
             userChoosen: true,
         });
+    };
+
+    const handleChangeLoadingStatus = () => {
+        setIsLoading((state) => !state);
     };
 
     const handleSaveName = () => {
@@ -53,6 +59,7 @@ export const Login = () => {
 
     const handleGetUserInfos = async () => {
         try {
+            handleChangeLoadingStatus();
             const response = await userService.getUsersInfo();
 
             const filteredUser = response.filter(
@@ -65,6 +72,8 @@ export const Login = () => {
                       message: 'Ops, usuário nao encontrado!',
                       type: 'warning',
                   });
+
+            handleChangeLoadingStatus();
         } catch (err) {
             showPopup({
                 message: 'Error ao buscar usuários!',
@@ -75,9 +84,18 @@ export const Login = () => {
 
     const handleRegisterInfos = async () => {
         try {
+            handleChangeLoadingStatus();
             const response = await userService.postUserInfo(username);
 
+            if (response.message === 'Já existe um usuário com este nome.') {
+                return showPopup({
+                    message: 'Usuario ja existente!',
+                    type: 'warning',
+                });
+            }
+
             navigate('/animes', { state: response });
+            handleChangeLoadingStatus();
         } catch (err) {
             showPopup({
                 message: 'Erro ao criar usuário!',
@@ -108,8 +126,24 @@ export const Login = () => {
                         />
 
                         <>
-                            <Button onClick={handleSaveName}>
-                                Finalizar {userWantLogin ? 'Login' : 'Cadastro'}
+                            <Button
+                                onClick={handleSaveName}
+                                disabled={isLoading}
+                            >
+                                {isLoading ? (
+                                    <AiOutlineLoading3Quarters
+                                        size="1.2rem"
+                                        color="#ffffff"
+                                        style={{
+                                            animation:
+                                                '5s spinnow infinite linear',
+                                        }}
+                                    />
+                                ) : (
+                                    `Finalizar ${
+                                        userWantLogin ? 'Login' : 'Cadastro'
+                                    }`
+                                )}
                             </Button>
 
                             <p
