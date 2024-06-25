@@ -88,6 +88,8 @@ export const Login = () => {
             const response = await userService.postUserInfo(username);
 
             if (response.message === 'Já existe um usuário com este nome.') {
+                handleChangeLoadingStatus();
+
                 return showPopup({
                     message: 'Usuario ja existente!',
                     type: 'warning',
