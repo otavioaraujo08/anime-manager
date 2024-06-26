@@ -18,7 +18,6 @@ import { animeService } from '@services/anime';
 import logo from '@assets/logo.png';
 import { TodayAnimes } from './TodayAnimes';
 import { AnimeCard } from './AnimeCard';
-import { AnimesByGenre } from './AnimesByGenre';
 import { FloatButton } from '@components/FloatButton';
 import { NoAnimeDiv } from './NoAnimeDiv';
 
@@ -42,6 +41,26 @@ export const Home = () => {
             state: state,
         });
     };
+
+    const { animeNotStarted, animeInExibition, animeCompleted } = (
+        animeListOriginal || []
+    ).reduce(
+        (acc, anime) => {
+            if (anime.progress === 'Completo') {
+                acc.animeCompleted.push(anime);
+            } else if (anime.progress === 'Em andamento') {
+                acc.animeInExibition.push(anime);
+            } else {
+                acc.animeNotStarted.push(anime);
+            }
+            return acc;
+        },
+        {
+            animeNotStarted: [] as AnimeData[],
+            animeInExibition: [] as AnimeData[],
+            animeCompleted: [] as AnimeData[],
+        }
+    );
 
     const handleGetAnimesData = async () => {
         try {
@@ -115,19 +134,27 @@ export const Home = () => {
 
                             <AnimeTable>
                                 <AnimesBox>
-                                    <Title title="Anime ainda em execução" />
+                                    <Title title="Animes não iniciados" />
 
-                                    <AnimeCard
-                                        list={animeList?.filter(
-                                            (anime) =>
-                                                anime.progress ===
-                                                'Em andamento'
-                                        )}
-                                    />
+                                    <AnimeCard list={animeNotStarted} />
                                 </AnimesBox>
                             </AnimeTable>
 
-                            <AnimesByGenre animeList={animeListOriginal} />
+                            <AnimeTable>
+                                <AnimesBox>
+                                    <Title title="Animes em execução" />
+
+                                    <AnimeCard list={animeInExibition} />
+                                </AnimesBox>
+                            </AnimeTable>
+
+                            <AnimeTable>
+                                <AnimesBox>
+                                    <Title title="Animes concluidos" />
+
+                                    <AnimeCard list={animeCompleted} />
+                                </AnimesBox>
+                            </AnimeTable>
 
                             <AnimeTable>
                                 <AnimesBox>
