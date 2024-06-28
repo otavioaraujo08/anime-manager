@@ -23,7 +23,6 @@ import { NoAnimeDiv } from './NoAnimeDiv';
 
 export const Home = () => {
     const [animeListOriginal, setAnimeListOriginal] = useState<AnimeData[]>();
-    const [animeList, setAnimeList] = useState<AnimeData[]>();
     const [searchFilter, setSearchFilter] = useState<string>('');
 
     const navigate = useNavigate();
@@ -90,9 +89,9 @@ export const Home = () => {
                         .includes(searchFilter.toLowerCase())
             );
 
-            setAnimeList(filteredAnimeList);
+            setAnimeListOriginal(filteredAnimeList);
         } else {
-            setAnimeList(animeListOriginal);
+            setAnimeListOriginal(animeListOriginal);
         }
     }, [searchFilter, animeListOriginal]);
 
@@ -160,7 +159,7 @@ export const Home = () => {
                                 <AnimesBox>
                                     <Title title="Todos os animes" />
 
-                                    <AnimeCard list={animeList} />
+                                    <AnimeCard list={animeListOriginal} />
                                 </AnimesBox>
                             </AnimeTable>
 
