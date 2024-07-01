@@ -42,10 +42,14 @@ export const AnimeEdit = ({
     } = useForm<IFormInput>();
     const { state } = useLocation();
     const navigate = useNavigate();
+    const userData = {
+        userId: state?._id || 1,
+        nome: state?.nome || '',
+    };
 
     const handleRedirectPage = () => {
         navigate('/animes', {
-            state: state,
+            state: userData,
         });
     };
 

@@ -116,10 +116,14 @@ export const AnimeView = ({
     const [isConfirmedDelete, setIsConfirmedDelete] = useState<boolean>(false);
     const { state } = useLocation();
     const navigate = useNavigate();
+    const userData = {
+        userId: state?._id || 1,
+        nome: state?.nome || '',
+    };
 
     const handleRedirectPage = () => {
         navigate('/animes', {
-            state: state,
+            state: userData,
         });
     };
 
